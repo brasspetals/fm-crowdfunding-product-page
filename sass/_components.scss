@@ -2,20 +2,57 @@
 .btn {
   color: $color-white;
   font-weight: 700;
-  font-size: 16px;
   display: grid;
   align-items: center;
   justify-content: center;
+  border-radius: 40px;
 
   &--teal {
     background-color: $color-teal;
-    padding: 18px 44px;
-    border-radius: 40px;
 
     &:hover {
       background-color: $color-teal-dark;
     }
   }
+
+  &--primary {
+    font-size: 16px;
+    padding: 18px 44px;
+  }
+
+  &--pledge {
+    font-size: 13px;
+    padding: 16px 32px;
+  }
+
+  &--unavailable {
+    background-color: $color-button-disabled;
+    padding: 16px 38px;
+  }
 }
 
 // Pledges
+.pledge {
+  background-color: $color-white;
+  border-radius: 8px;
+  border: 1px solid $color-pledge-border;
+  padding: 24px 22px;
+  width: 100%;
+  display: grid;
+  grid-gap: 24px;
+
+  &__footer {
+    // padding-top: 2px; // fix pledge spacing later
+    display: grid;
+    justify-content: start;
+    grid-gap: 24px;
+
+    &-text-wrapper {
+      display: grid;
+      grid-auto-flow: column;
+      align-items: center;
+      justify-content: start;
+      grid-gap: 9px;
+    }
+  }
+}

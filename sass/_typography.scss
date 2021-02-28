@@ -1,17 +1,33 @@
 .heading {
   color: $color-black;
-  font-size: 20px;
+  font-weight: 700;
   line-height: 1.2;
 
   &--primary {
+    font-size: 20px;
     padding: 0 16px;
     // larger screens 28px
+  }
+
+  &--secondary {
+    font-size: 18px;
+  }
+
+  // Pledge Titles
+  &--tertiary {
+    font-size: 14px;
+    margin-bottom: 4px;
   }
 }
 
 .paragraph {
   font-size: 14px; // larger screens 16px
   line-height: 1.7;
+
+  &--pledge-requirement {
+    color: $color-teal;
+    margin-bottom: 22px;
+  }
 }
 
 .number {

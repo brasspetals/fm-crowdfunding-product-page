@@ -5,15 +5,17 @@
 
   &--primary {
     padding: 0 16px;
+    // larger screens 28px
   }
 }
 
 .paragraph {
-  font-size: 14px;
+  font-size: 14px; // larger screens 16px
   line-height: 1.7;
 }
 
 .number {
   color: $color-black;
   font-weight: 700;
+  font-size: 32px;
 }

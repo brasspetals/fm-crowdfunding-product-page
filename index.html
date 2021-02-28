@@ -45,9 +45,11 @@
         </nav>
       </div>
       <div class="header__hero">
-        <img src="./images/image-hero-mobile.jpg" alt="">
+        <picture>
+          <source media="(min-width: 800px)" srcset="./images/image-hero-desktop.jpg">
+          <img src="./images/image-hero-mobile.jpg" alt="">
+        </picture>
       </div>
-      
     </header>
 
     <main class="main">
@@ -79,13 +81,13 @@
         </div>
       </section>
 
-      <section class="statistics section">
+      <div class="statistics section">
         <div class="statistics-group-wrapper">
           <div class="statistics__group">
             <p id="amount-pledged" class="number">$89,914</p>
             <p class="paragraph">of $100,000 backed</p>
           </div>
-          <div class="statistics__group">
+          <div class="statistics__group statistics__group--central">
             <p id="num-backers" class="number">5,007</p>
             <p class="paragraph">total backers</p>
           </div>
@@ -94,8 +96,10 @@
             <p class="paragraph">days left</p>
           </div>
         </div>
-        <div class="statistics__slider"></div>
-      </section>
+        <div class="statistics__slider">
+          <div class="statistics__slider-inner"></div>
+        </div>
+      </div>
 
       <section class="about section">
         <div class="about__text">

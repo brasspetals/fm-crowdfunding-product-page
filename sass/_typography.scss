@@ -1,0 +1,19 @@
+.heading {
+  color: $color-black;
+  font-size: 20px;
+  line-height: 1.2;
+
+  &--primary {
+    padding: 0 16px;
+  }
+}
+
+.paragraph {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.number {
+  color: $color-black;
+  font-weight: 700;
+}

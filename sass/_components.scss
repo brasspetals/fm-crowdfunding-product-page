@@ -1,0 +1,20 @@
+// Buttons
+.btn {
+  color: $color-white;
+  font-weight: 700;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  &--teal {
+    background-color: $color-teal;
+    padding: 18px 44px;
+    border-radius: 40px;
+
+    &:hover {
+      background-color: $color-teal-dark;
+    }
+  }
+}
+
+// Pledges

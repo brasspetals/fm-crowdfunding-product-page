@@ -26,7 +26,7 @@
   }
 
   &--unavailable {
-    background-color: $color-button-disabled;
+    background-color: $color-gray;
     padding: 16px 38px;
   }
 }
@@ -42,7 +42,6 @@
   grid-gap: 24px;
 
   &__footer {
-    // padding-top: 2px; // fix pledge spacing later
     display: grid;
     justify-content: start;
     grid-gap: 24px;
@@ -53,6 +52,19 @@
       align-items: center;
       justify-content: start;
       grid-gap: 9px;
+    }
+  }
+
+  &--unavailable {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba($color-white, 0.6);
     }
   }
 }

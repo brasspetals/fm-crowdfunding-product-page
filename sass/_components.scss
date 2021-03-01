@@ -52,12 +52,19 @@
   &--pledge {
     font-size: 13px;
     padding: 16px 32px;
+
+    &:disabled {
+      background-color: $color-gray;
+      padding: 16px 38px;
+      cursor: unset;
+    }
   }
 
-  &--unavailable {
-    background-color: $color-gray;
-    padding: 16px 38px;
-  }
+  // &--unavailable {
+  //   background-color: $color-gray;
+  //   padding: 16px 38px;
+  //   cursor: unset;
+  // }
 }
 
 // Pledges

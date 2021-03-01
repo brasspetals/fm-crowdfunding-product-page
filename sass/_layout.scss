@@ -44,8 +44,33 @@
 
 .navigation {
   &__list {
-    display: none;
+    position: absolute;
+    top: 88px;
+    background-color: $color-white;
+    border-radius: 8px;
+    color: $color-black;
+    font-weight: 500;
+    left: 24px;
+    right: 24px;
+    border: 1px solid $color-section-border;
+    font-size: 18px;
+
+    &-item {
+      padding: 24px 24px 23px;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $color-section-border;
+      }
+    }
+
+    &--hidden {
+      display: none;
+    }
   }
+}
+
+.disable-scroll {
+  overflow-y: hidden;
 }
 
 ////////////

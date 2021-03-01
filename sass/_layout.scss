@@ -36,7 +36,7 @@
       left: 0;
       background-image: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.45),
         transparent
       );
       width: 100%;
@@ -57,6 +57,13 @@
   align-items: center;
   padding: 32px 24px;
   z-index: 10;
+
+  @media only screen and (min-width: 600px) {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1172px;
+    padding: 48px 32px;
+  }
 }
 
 .navigation {
@@ -73,17 +80,64 @@
     overflow: hidden;
     transition: all 0.35s ease-out;
 
+    @media only screen and (min-width: 500px) {
+      position: relative;
+      top: unset;
+      left: unset;
+      right: unset;
+      background-color: unset;
+      border-radius: unset;
+      color: $color-white;
+      font-size: 13px;
+      display: grid;
+      grid-auto-flow: column;
+      align-items: center;
+      grid-gap: 34px;
+      overflow: visible;
+    }
+
     &-item {
       padding: 24px 24px 23px;
       transition: all 0.3s;
 
+      @media only screen and (min-width: 500px) {
+        padding: 0;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -6px;
+          width: 100%;
+          height: 1px;
+          background-color: $color-white;
+          opacity: 0;
+          transition: all 0.3s ease;
+        }
+
+        &:hover::after {
+          opacity: 1;
+          transition: all 0.3s ease;
+        }
+      }
+
       &:hover {
         background-color: $color-teal-dark;
         color: $color-white;
+
+        @media only screen and (min-width: 500px) {
+          color: unset;
+          background-color: unset;
+        }
       }
 
       &:not(:last-of-type) {
         border-bottom: 1px solid $color-section-border;
+
+        @media only screen and (min-width: 500px) {
+          border-bottom: unset;
+        }
       }
     }
 
@@ -92,6 +146,13 @@
       opacity: 0;
       visibility: hidden;
       transition: all 0.25s ease-out;
+
+      @media only screen and (min-width: 500px) {
+        opacity: 1;
+        scale: 1;
+        visibility: visible;
+        transition: unset;
+      }
     }
   }
 }

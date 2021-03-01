@@ -8,6 +8,12 @@
   border-radius: 40px;
   transition: all 0.3s;
 
+  &--menu {
+    @media only screen and (min-width: 500px) {
+      display: none;
+    }
+  }
+
   &--teal {
     background-color: $color-teal;
 

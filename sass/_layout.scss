@@ -71,7 +71,7 @@
     right: 24px;
     font-size: 18px;
     overflow: hidden;
-    transition: all 0.3s;
+    transition: all 0.35s ease-out;
 
     &-item {
       padding: 24px 24px 23px;
@@ -88,9 +88,10 @@
     }
 
     &--hidden {
+      scale: 0.85;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.3s;
+      transition: all 0.25s ease-out;
     }
   }
 }

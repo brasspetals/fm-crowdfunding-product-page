@@ -4,10 +4,12 @@
 const btn = document.querySelector(".btn--menu");
 const btnIcon = document.querySelector(".menu-icon");
 const nav = document.querySelector(".navigation__list");
+const overlay = document.querySelector(".overlay");
 const bookmark = document.querySelector(".btn--bookmark");
 
 function toggleMenu() {
   nav.classList.toggle("navigation__list--hidden");
+  overlay.classList.toggle("overlay--hidden");
   document.body.classList.toggle("disable-scroll");
 
   if (nav.classList.contains("navigation__list--hidden")) {
@@ -24,4 +26,5 @@ function bookmarkProject() {
 }
 
 btn.addEventListener("click", toggleMenu);
+overlay.addEventListener("click", toggleMenu);
 bookmark.addEventListener("click", bookmarkProject);

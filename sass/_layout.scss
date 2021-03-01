@@ -1,6 +1,23 @@
 ////////////
 // Header //
 ////////////
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(rgba($color-black, 0.5), transparent);
+  z-index: 10;
+  transition: all 0.3s;
+  visibility: visible;
+
+  &--hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+  }
+}
 
 // Header & "Hero" Image
 .header {
@@ -52,11 +69,18 @@
     font-weight: 500;
     left: 24px;
     right: 24px;
-    border: 1px solid $color-section-border;
     font-size: 18px;
+    overflow: hidden;
+    transition: all 0.3s;
 
     &-item {
       padding: 24px 24px 23px;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: $color-teal-dark;
+        color: $color-white;
+      }
 
       &:not(:last-of-type) {
         border-bottom: 1px solid $color-section-border;
@@ -64,7 +88,9 @@
     }
 
     &--hidden {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
     }
   }
 }

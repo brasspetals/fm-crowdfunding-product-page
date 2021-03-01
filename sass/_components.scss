@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 40px;
+  transition: all 0.3s;
 
   &--teal {
     background-color: $color-teal;
@@ -16,31 +17,26 @@
   }
 
   &--primary {
-    font-size: 16px;
+    font-size: 15px;
     padding: 18px 44px;
   }
 
   &--bookmark {
-    transition: all 0.3s;
-
     & * circle,
     & * path {
       transition: all 0.3s;
+    }
+
+    &:hover {
+      & * path {
+        fill: $color-white;
+      }
     }
 
     &-active {
       & * circle {
         fill: $color-teal-dark;
       }
-      & * path {
-        fill: $color-white;
-      }
-    }
-
-    &:hover {
-      transition: all 0.3s;
-      transform: scale(1.05);
-
       & * path {
         fill: $color-white;
       }

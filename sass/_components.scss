@@ -20,6 +20,33 @@
     padding: 18px 44px;
   }
 
+  &--bookmark {
+    transition: all 0.3s;
+
+    & * circle,
+    & * path {
+      transition: all 0.3s;
+    }
+
+    &-active {
+      & * circle {
+        fill: $color-teal-dark;
+      }
+      & * path {
+        fill: $color-white;
+      }
+    }
+
+    &:hover {
+      transition: all 0.3s;
+      transform: scale(1.05);
+
+      & * path {
+        fill: $color-white;
+      }
+    }
+  }
+
   &--pledge {
     font-size: 13px;
     padding: 16px 32px;
@@ -65,6 +92,7 @@
       bottom: 0;
       right: 0;
       background-color: rgba($color-white, 0.6);
+      border-radius: 8px;
     }
   }
 }

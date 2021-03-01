@@ -1,6 +1,10 @@
+//////////////////
+// Mobile Menu //
+////////////////
 const btn = document.querySelector(".btn--menu");
 const btnIcon = document.querySelector(".menu-icon");
 const nav = document.querySelector(".navigation__list");
+const bookmark = document.querySelector(".btn--bookmark");
 
 function toggleMenu() {
   nav.classList.toggle("navigation__list--hidden");
@@ -15,4 +19,9 @@ function toggleMenu() {
   }
 }
 
+function bookmarkProject() {
+  bookmark.classList.toggle("btn--bookmark-active");
+}
+
 btn.addEventListener("click", toggleMenu);
+bookmark.addEventListener("click", bookmarkProject);

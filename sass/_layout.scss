@@ -180,6 +180,10 @@
   display: grid;
   justify-content: center;
   grid-gap: 24px;
+
+  @media only screen and (min-width: 1400px) {
+    margin-top: -96px;
+  }
 }
 
 .section {
@@ -189,6 +193,10 @@
   padding: 32px 24px 39px; // will need adjusting
   width: 100%;
   max-width: 730px; // tentative
+
+  @media only screen and (min-width: 800px) {
+    padding: 48px 48px;
+  }
 }
 
 // Intro
@@ -196,15 +204,27 @@
   display: grid;
   justify-items: center;
   text-align: center;
-  grid-gap: 20px;
+  grid-gap: 24px;
+  position: relative;
+
+  @media only screen and (min-width: 800px) {
+    grid-gap: 35px;
+  }
 
   &__logo {
-    margin-top: -60px;
+    position: absolute;
+    top: -28px;
   }
 
   &__text {
     display: grid;
     grid-gap: 16px;
+    padding-top: 20px;
+
+    @media only screen and (min-width: 800px) {
+      grid-gap: 12px;
+      padding-top: 8px; // or 8 if section goes straight 48px
+    }
   }
 
   &__btns {
@@ -213,7 +233,7 @@
     align-items: center;
     grid-auto-flow: column;
     width: 100%;
-    margin-top: 4px;
+    // margin-top: 4px;
   }
 }
 
@@ -223,11 +243,22 @@
   display: grid;
   grid-gap: 28px;
 
+  @media only screen and (min-width: 800px) {
+    text-align: left;
+    grid-gap: 32px;
+  }
+
   &-group-wrapper {
     display: grid;
     justify-content: center;
     align-items: start;
     grid-gap: 46px;
+
+    @media only screen and (min-width: 800px) {
+      justify-content: start;
+      grid-auto-flow: column;
+      grid-gap: 42px;
+    }
   }
 
   &__group {
@@ -235,16 +266,36 @@
     grid-gap: 5px;
     position: relative;
 
+    @media only screen and (min-width: 800px) {
+      grid-gap: 3px;
+
+      &:not(:first-of-type) {
+        padding-left: 48px;
+      }
+
+      &--central {
+        padding-right: 50px;
+      }
+    }
+
     // dividing lines
-    &:not(:last-of-type)::after {
+    &:not(:first-of-type)::before {
       content: "";
       position: absolute;
       height: 1px;
-      bottom: -22px;
+      top: -26px;
       background-color: rgba($color-gray, 0.5);
       width: 63%;
       left: 50%;
       transform: translateX(-50%);
+
+      @media only screen and (min-width: 800px) {
+        height: 88%;
+        width: 1px;
+        top: 0;
+        left: unset;
+        transform: unset;
+      }
     }
   }
 
@@ -268,14 +319,27 @@
   display: grid;
   grid-gap: 34px;
 
+  @media only screen and (min-width: 800px) {
+    grid-gap: 40px;
+  }
+
   &__text {
     padding-top: 7px;
     display: grid;
     grid-gap: 26px;
+
+    @media only screen and (min-width: 800px) {
+      padding-top: 0;
+      grid-gap: 34px;
+    }
   }
 
   &__pledges {
     display: grid;
     grid-gap: 22px;
+
+    @media only screen and (min-width: 800px) {
+      grid-gap: 25px;
+    }
   }
 }

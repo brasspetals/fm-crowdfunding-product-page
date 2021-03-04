@@ -194,7 +194,7 @@
   width: 100%;
   max-width: 730px; // tentative
 
-  @media only screen and (min-width: 800px) {
+  @media only screen and (min-width: 700px) {
     padding: 48px 48px;
   }
 }
@@ -207,7 +207,7 @@
   grid-gap: 24px;
   position: relative;
 
-  @media only screen and (min-width: 800px) {
+  @media only screen and (min-width: 700px) {
     grid-gap: 35px;
   }
 
@@ -221,7 +221,7 @@
     grid-gap: 16px;
     padding-top: 20px;
 
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 700px) {
       grid-gap: 12px;
       padding-top: 8px; // or 8 if section goes straight 48px
     }
@@ -243,7 +243,7 @@
   display: grid;
   grid-gap: 28px;
 
-  @media only screen and (min-width: 800px) {
+  @media only screen and (min-width: 600px) {
     text-align: left;
     grid-gap: 32px;
   }
@@ -254,7 +254,7 @@
     align-items: start;
     grid-gap: 46px;
 
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 600px) {
       justify-content: start;
       grid-auto-flow: column;
       grid-gap: 42px;
@@ -266,7 +266,7 @@
     grid-gap: 5px;
     position: relative;
 
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 600px) {
       grid-gap: 3px;
 
       &:not(:first-of-type) {
@@ -289,7 +289,7 @@
       left: 50%;
       transform: translateX(-50%);
 
-      @media only screen and (min-width: 800px) {
+      @media only screen and (min-width: 600px) {
         height: 88%;
         width: 1px;
         top: 0;
@@ -319,7 +319,7 @@
   display: grid;
   grid-gap: 34px;
 
-  @media only screen and (min-width: 800px) {
+  @media only screen and (min-width: 700px) {
     grid-gap: 40px;
   }
 
@@ -328,7 +328,7 @@
     display: grid;
     grid-gap: 26px;
 
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 700px) {
       padding-top: 0;
       grid-gap: 34px;
     }
@@ -338,7 +338,7 @@
     display: grid;
     grid-gap: 22px;
 
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 700px) {
       grid-gap: 25px;
     }
   }

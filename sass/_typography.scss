@@ -7,7 +7,7 @@
     font-size: 20px;
     padding: 0 16px;
 
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 700px) {
       font-size: 28px;
     }
   }
@@ -15,7 +15,7 @@
   &--secondary {
     font-size: 18px;
 
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 700px) {
       font-size: 20px;
     }
   }
@@ -24,7 +24,7 @@
   &--tertiary {
     font-size: 14px;
 
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 700px) {
       font-size: 18px;
     }
   }
@@ -34,7 +34,7 @@
   font-size: 14px;
   line-height: 1.7;
 
-  @media only screen and (min-width: 800px) {
+  @media only screen and (min-width: 700px) {
     font-size: 15px;
 
     &--primary,

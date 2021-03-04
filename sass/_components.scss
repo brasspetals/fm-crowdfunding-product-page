@@ -24,18 +24,28 @@
 
   &--primary {
     font-size: 15px;
-    padding: 18px 44px;
-
-    @media only screen and (min-width: 800px) {
-      padding: 18.5px 40px;
-    }
+    // padding: 18px 44px;
+    padding: 18.5px 40px;
   }
 
   &--bookmark {
+    @media only screen and (min-width: 600px) {
+      border-radius: 40px;
+      background-color: $color-slider-bg;
+      color: $color-gray;
+      display: grid;
+      grid-auto-flow: column;
+    }
+
     & svg {
       transition: all 0.5s ease;
       position: relative;
       z-index: 1;
+
+      @media only screen and (min-width: 600px) {
+        transition: all 0.5s ease;
+        transform: translateX(116px);
+      }
     }
 
     & * circle,
@@ -46,22 +56,16 @@
     span {
       display: none;
 
-      @media only screen and (min-width: 800px) {
+      @media only screen and (min-width: 600px) {
         display: inline;
         font-size: 15px;
         padding: 0px 26px 0 16px;
         transition: all 0.5s ease;
         position: relative;
         z-index: 0;
+        transform: translateX(-45px);
+        color: $color-teal-dark;
       }
-    }
-
-    @media only screen and (min-width: 800px) {
-      border-radius: 40px;
-      background-color: $color-slider-bg;
-      color: $color-gray;
-      display: grid;
-      grid-auto-flow: column;
     }
 
     &:hover {
@@ -76,19 +80,6 @@
       }
       & * path {
         fill: $color-white;
-      }
-
-      @media only screen and (min-width: 800px) {
-        svg {
-          transition: all 0.5s ease;
-          transform: translateX(116px);
-        }
-
-        span {
-          transition: all 0.5s ease;
-          transform: translateX(-50px);
-          color: $color-teal-dark;
-        }
       }
     }
   }
@@ -115,7 +106,7 @@
   display: grid;
   grid-gap: 22px;
 
-  @media only screen and (min-width: 800px) {
+  @media only screen and (min-width: 700px) {
     padding: 36px 30px 30px;
   }
 
@@ -123,7 +114,7 @@
     display: grid;
     grid-gap: 4px;
 
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 700px) {
       grid-auto-flow: column;
       justify-content: space-between;
     }
@@ -135,7 +126,7 @@
     justify-content: start;
     grid-gap: 24px;
 
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 700px) {
       grid-auto-flow: column;
       justify-content: space-between;
     }

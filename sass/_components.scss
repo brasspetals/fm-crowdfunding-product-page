@@ -28,67 +28,6 @@
     padding: 18.5px 40px;
   }
 
-  &--bookmark {
-    @media only screen and (min-width: 600px) {
-      border-radius: 40px;
-      background-color: $color-slider-bg;
-      color: $color-gray;
-      display: grid;
-      grid-auto-flow: column;
-    }
-
-    & svg {
-      transition: all 0.5s ease;
-      position: relative;
-      z-index: 1;
-    }
-
-    & * circle,
-    & * path {
-      transition: all 0.3s;
-    }
-
-    span {
-      display: none;
-
-      @media only screen and (min-width: 600px) {
-        display: inline;
-        font-size: 15px;
-        padding: 0px 26px 0 16px;
-        transition: all 0.5s ease;
-        position: relative;
-        z-index: 0;
-      }
-    }
-
-    &:hover {
-      & * path {
-        fill: $color-white;
-      }
-    }
-
-    &-active {
-      & * circle {
-        fill: $color-teal-dark;
-      }
-      & * path {
-        fill: $color-white;
-      }
-
-      @media only screen and (min-width: 600px) {
-        svg {
-          transition: all 0.5s ease;
-          transform: translateX(116px);
-        }
-
-        span {
-          transform: translateX(-45px);
-          color: $color-teal-dark;
-        }
-      }
-    }
-  }
-
   &--pledge {
     font-size: 13px;
     padding: 16px 32px;
@@ -97,6 +36,72 @@
       background-color: $color-gray;
       padding: 16px 38px;
       cursor: unset;
+    }
+  }
+}
+
+//Bookmark
+.bookmark {
+  @media only screen and (min-width: 600px) {
+    border-radius: 40px;
+    background-color: $color-slider-bg;
+    color: $color-gray;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    min-width: 172px;
+    grid-gap: 16px;
+  }
+
+  &:hover {
+    & * path {
+      fill: $color-white;
+    }
+  }
+
+  &__icon {
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 1;
+
+    & * circle,
+    & * path {
+      transition: all 0.3s;
+    }
+  }
+
+  &__text {
+    display: none;
+
+    @media only screen and (min-width: 600px) {
+      display: inline;
+      font-size: 15px;
+      // padding: 0px 26px 0 16px;
+      padding-right: 26px;
+      transition: all 0.5s ease;
+      position: relative;
+      z-index: 0;
+    }
+  }
+
+  &--active {
+    & * circle {
+      fill: $color-teal-dark;
+    }
+    & * path {
+      fill: $color-white;
+    }
+
+    @media only screen and (min-width: 600px) {
+      .bookmark__icon {
+        transition: all 0.5s ease;
+        transform: translateX(116px);
+      }
+
+      .bookmark__text {
+        transform: translateX(-45px);
+        color: $color-teal-dark;
+      }
     }
   }
 }

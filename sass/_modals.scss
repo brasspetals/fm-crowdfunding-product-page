@@ -1,0 +1,20 @@
+.modal {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 87.5%;
+  display: grid;
+  grid-gap: 24px;
+  z-index: 100;
+
+  &--hidden {
+    display: none;
+  }
+
+  &__header {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+  }
+}

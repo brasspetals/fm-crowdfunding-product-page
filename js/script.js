@@ -1,12 +1,10 @@
 //////////////////
 // Mobile Menu //
 ////////////////
-const btn = document.querySelector(".btn--menu");
-const btnIcon = document.querySelector(".menu-icon");
+const btnMenu = document.querySelector(".btn--menu");
+const btnMenuIcon = document.querySelector(".menu-icon");
 const nav = document.querySelector(".navigation__list");
 const overlay = document.querySelector(".overlay");
-const bookmark = document.querySelector(".bookmark");
-const bookmarkTextActive = document.querySelector(".bookmark__text--active");
 
 function toggleMenu() {
   nav.classList.toggle("navigation__list--hidden");
@@ -14,13 +12,18 @@ function toggleMenu() {
   document.body.classList.toggle("disable-scroll");
 
   if (nav.classList.contains("navigation__list--hidden")) {
-    btnIcon.src = "./images/icon-hamburger.svg";
-    btn.setAttribute("aria-expanded", "false");
+    btnMenuIcon.src = "./images/icon-hamburger.svg";
+    btnMenu.setAttribute("aria-expanded", "false");
   } else {
-    btnIcon.src = "./images/icon-close-menu.svg";
-    btn.setAttribute("aria-expanded", "true");
+    btnMenuIcon.src = "./images/icon-close-menu.svg";
+    btnMenu.setAttribute("aria-expanded", "true");
   }
 }
+
+//////////////////////
+// Bookmark Button //
+////////////////////
+const bookmark = document.querySelector(".bookmark");
 
 function bookmarkProject() {
   bookmark.classList.toggle("bookmark--active");
@@ -32,6 +35,48 @@ function bookmarkProject() {
   }
 }
 
-btn.addEventListener("click", toggleMenu);
-overlay.addEventListener("click", toggleMenu);
+/////////////
+// Modals //
+///////////
+const btnPrimary = document.querySelector(".btn--primary");
+const btnPledge = document.querySelectorAll(".btn--pledge");
+const modalPledges = document.querySelector(".modal--selection");
+const btnCloseModal = document.querySelector(".btn--close-modal");
+
+// Open selection modal, apply overlay
+function openModal() {
+  modalPledges.classList.remove("modal--hidden");
+  overlay.classList.toggle("overlay--hidden");
+  overlay.classList.add("overlay--modal");
+}
+
+// Close selection modal, remove overlay
+function closeModal() {
+  modalPledges.classList.add("modal--hidden");
+  overlay.classList.toggle("overlay--hidden");
+  overlay.classList.remove("overlay--modal");
+}
+
+//////////////////////
+// Event Listeners //
+////////////////////
+btnMenu.addEventListener("click", toggleMenu);
+btnPrimary.addEventListener("click", openModal);
+btnCloseModal.addEventListener("click", closeModal);
 bookmark.addEventListener("click", bookmarkProject);
+
+btnPledge.forEach((item) => {
+  item.addEventListener("click", (event) => {
+    // console.log(item.id);
+    openModal();
+  });
+});
+
+// Close mobile menu and modals when clicking outside them
+overlay.addEventListener("click", function () {
+  if (overlay.classList.contains("overlay--modal")) {
+    closeModal();
+  } else {
+    toggleMenu();
+  }
+});

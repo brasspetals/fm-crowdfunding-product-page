@@ -1,3 +1,25 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(rgba($color-black, 0.5), transparent);
+  z-index: 10;
+  transition: all 0.3s;
+  visibility: visible;
+
+  &--hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+  }
+
+  &--modal {
+    z-index: 50;
+  }
+}
+
 // Buttons
 .btn {
   color: $color-white;
@@ -28,7 +50,8 @@
     padding: 18.5px 40px;
   }
 
-  &--pledge {
+  &--pledge,
+  &--modal {
     font-size: 13px;
     padding: 16px 32px;
 
@@ -144,6 +167,13 @@
       grid-auto-flow: column;
       justify-content: space-between;
     }
+
+    &--modal {
+      justify-content: start;
+      grid-auto-flow: column;
+      grid-gap: 16px;
+      padding-top: 12px;
+    }
   }
 
   &__footer {
@@ -168,5 +198,9 @@
 
   &--unavailable {
     filter: opacity(0.45);
+  }
+
+  &__form {
+    display: none;
   }
 }

@@ -210,7 +210,7 @@
               </div>
               <button
                 id="selectMahogany"
-                class="btn btn--pledge"
+                class="btn btn--pledge btn--teal"
                 disabled="true"
               >
                 Out of Stock
@@ -222,6 +222,59 @@
     </main>
 
     <!-- Selection modal start -->
+    <div class="section modal modal--selection modal--hidden">
+      <div class="modal__header">
+        <h2 class="heading heading--secondary">Back this project</h2>
+        <button class="btn btn--close-modal" aria-label="close modal">
+          <img src="./images/icon-close-modal.svg" alt="close icon" />
+        </button>
+      </div>
+      <div class="modal__description">
+        <p class="paragraph paragraph--modal">
+          Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
+          the world?
+        </p>
+      </div>
+      <div class="modal__pledge-selection">
+        <div class="pledge pledge--modal">
+          <div class="pledge__header pledge__header--modal">
+            <input type="radio" name="" id="no-reward" class="modal-radio" />
+            <label
+              for="no-reward"
+              class="heading heading--tertiary heading--modal"
+            >
+              Pledge with no reward
+            </label>
+          </div>
+          <div class="pledge__description">
+            <p class="paragraph">
+              Choose to support us without a reward if you simply believe in our
+              project. As a backer, you will be signed up to receive product
+              updates via email.
+            </p>
+          </div>
+          <!-- <div class="pledge__footer pledge__footer--modal"></div> -->
+          <form class="pledge__form">
+            <label class="paragraph" for="pledge-amount">
+              Enter your pledge
+            </label>
+            <input
+              type="number"
+              name="pledge"
+              id="pledge-amount"
+              min="25"
+              value="25"
+            />
+            <button class="btn btn--modal btn--teal">Continue</button>
+          </form>
+        </div>
+
+        <!-- <label for="Bamboo Stand Pledge" class="pledge">
+          <input type="number" name="" id="" min="25" />
+        </label> -->
+      </div>
+    </div>
+
     <!-- Back this project Want to support us in bringing Mastercraft Bamboo Monitor
     Riser out in the world? Pledge with no reward Choose to support us without a
     reward if you simply believe in our project. As a backer, you will be signed

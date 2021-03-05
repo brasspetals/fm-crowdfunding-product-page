@@ -6,6 +6,7 @@ const btnIcon = document.querySelector(".menu-icon");
 const nav = document.querySelector(".navigation__list");
 const overlay = document.querySelector(".overlay");
 const bookmark = document.querySelector(".bookmark");
+const bookmarkTextActive = document.querySelector(".bookmark__text--active");
 
 function toggleMenu() {
   nav.classList.toggle("navigation__list--hidden");
@@ -23,6 +24,12 @@ function toggleMenu() {
 
 function bookmarkProject() {
   bookmark.classList.toggle("bookmark--active");
+
+  if (bookmark.classList.contains("bookmark--active")) {
+    bookmark.setAttribute("aria-pressed", "true");
+  } else {
+    bookmark.setAttribute("aria-pressed", "false");
+  }
 }
 
 btn.addEventListener("click", toggleMenu);

@@ -77,7 +77,11 @@
         </div>
         <div class="intro__btns">
           <button class="btn btn--teal btn--primary">Back this project</button>
-          <button class="btn bookmark">
+          <button
+            class="btn bookmark"
+            aria-label="bookmark project"
+            aria-pressed="false"
+          >
             <svg
               class="bookmark__icon"
               width="56"
@@ -89,7 +93,9 @@
                 <path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" />
               </g>
             </svg>
-            <span class="bookmark__text">Bookmark</span>
+            <p class="bookmark__text">
+              Bookmark<span class="bookmark__text--active">ed</span>
+            </p>
           </button>
         </div>
       </section>

@@ -17,6 +17,10 @@
 
   &--modal {
     z-index: 50;
+    background-image: linear-gradient(
+      rgba($color-black, 0.5),
+      rgba($color-black, 0.5)
+    );
   }
 }
 
@@ -134,6 +138,7 @@
         color: $color-teal-dark;
       }
 
+      // "ed" span
       .bookmark__text--active {
         padding-right: 26px;
         visibility: visible;
@@ -161,6 +166,16 @@
 
   &--unavailable {
     filter: opacity(0.45);
+
+    & .heading--modal:hover {
+      cursor: auto;
+      color: $color-black;
+    }
+  }
+
+  &--modal {
+    padding: 24px 22px 32px;
+    grid-gap: 35px;
   }
 
   &__header {
@@ -177,7 +192,8 @@
       justify-content: start;
       grid-auto-flow: column;
       grid-gap: 16px;
-      padding-top: 12px;
+      padding-top: 8px;
+      align-items: center;
     }
   }
 
@@ -195,5 +211,37 @@
 
   &__modal-form {
     display: none;
+  }
+}
+
+// Radio Buttons (Modal Pledges)
+.radio {
+  display: flex;
+
+  &__input {
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  &__control {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid $color-pledge-border;
+  }
+}
+
+input[type="radio"]:checked {
+  & + .pledge {
+    border: 2px solid $color-teal;
+
+    * .radio__control {
+      background: radial-gradient($color-teal 40%, transparent 41%);
+    }
+
+    > .pledge__modal-form {
+      display: block;
+    }
   }
 }

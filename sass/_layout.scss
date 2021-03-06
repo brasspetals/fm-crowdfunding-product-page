@@ -330,7 +330,9 @@
 // Containers //
 ///////////////
 
-.grid {
+.container {
+  display: grid;
+
   &--pledge-footer-text {
     display: grid;
     grid-auto-flow: column;

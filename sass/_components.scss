@@ -159,6 +159,10 @@
     padding: 36px 30px 30px;
   }
 
+  &--unavailable {
+    filter: opacity(0.45);
+  }
+
   &__header {
     display: grid;
     grid-gap: 4px;
@@ -169,6 +173,7 @@
     }
 
     &--modal {
+      display: grid;
       justify-content: start;
       grid-auto-flow: column;
       grid-gap: 16px;
@@ -186,21 +191,9 @@
       grid-auto-flow: column;
       justify-content: space-between;
     }
-
-    &-text-wrapper {
-      display: grid;
-      grid-auto-flow: column;
-      align-items: center;
-      justify-content: start;
-      grid-gap: 9px;
-    }
   }
 
-  &--unavailable {
-    filter: opacity(0.45);
-  }
-
-  &__form {
+  &__modal-form {
     display: none;
   }
 }

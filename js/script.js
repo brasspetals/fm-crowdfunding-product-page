@@ -40,7 +40,7 @@ function bookmarkProject() {
 ///////////
 const btnPrimary = document.querySelector(".btn--primary");
 const btnPledge = document.querySelectorAll(".btn--pledge");
-const modalPledges = document.querySelector(".modal--selection");
+const modalPledges = document.querySelector(".modal");
 const btnCloseModal = document.querySelector(".btn--close-modal");
 
 // Open selection modal, apply overlay
@@ -65,6 +65,7 @@ btnPrimary.addEventListener("click", openModal);
 btnCloseModal.addEventListener("click", closeModal);
 bookmark.addEventListener("click", bookmarkProject);
 
+// All pledge buttons open selection modal
 btnPledge.forEach((item) => {
   item.addEventListener("click", (event) => {
     // console.log(item.id);

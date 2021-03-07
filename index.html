@@ -156,7 +156,7 @@
                 <p class="number numBamboo">101</p>
                 <p class="paragraph">left</p>
               </div>
-              <button id="openBamboo" class="btn btn--teal btn--pledge">
+              <button id="bamboo" class="btn btn--teal btn--pledge">
                 Select Reward
               </button>
             </div>
@@ -181,7 +181,7 @@
                 <p class="number numBlack">64</p>
                 <p class="paragraph">left</p>
               </div>
-              <button id="openBlack" class="btn btn--teal btn--pledge">
+              <button id="black" class="btn btn--teal btn--pledge">
                 Select Reward
               </button>
             </div>
@@ -209,7 +209,7 @@
                 <p class="paragraph">left</p>
               </div>
               <button
-                id="openMahogany"
+                id="mahogany"
                 class="btn btn--pledge btn--teal"
                 disabled="true"
               >
@@ -224,7 +224,7 @@
     <!-- Selection modal start -->
     <div class="section modal modal--hidden">
       <div class="modal__header">
-        <h2 class="heading heading--secondary">Back this project</h2>
+        <h2 class="heading heading--modal">Back this project</h2>
         <button class="btn btn--close-modal" aria-label="close modal">
           <img src="./images/icon-close-modal.svg" alt="close icon" />
         </button>
@@ -237,7 +237,6 @@
       </div>
       <div class="container--modal-pledges">
         <!-- Select No Reward, No Minimum -->
-        <!-- put input before pledge div, hidden, possibly absolute (ruin accessibility?) - make pledge div label, could then use adjacent sibling selector to apply styles -->
         <div class="container">
           <input
             class="radio__input"

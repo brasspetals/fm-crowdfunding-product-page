@@ -68,7 +68,7 @@ bookmark.addEventListener("click", bookmarkProject);
 // All pledge buttons open selection modal
 btnPledge.forEach((item) => {
   item.addEventListener("click", (event) => {
-    // console.log(item.id);
+    document.getElementById(`reward-${item.id}`).checked = true;
     openModal();
   });
 });

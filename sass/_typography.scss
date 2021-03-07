@@ -13,11 +13,26 @@
     }
   }
 
-  &--secondary {
+  &--secondary,
+  &--modal {
     font-size: 18px;
+  }
 
+  &--secondary {
     @media only screen and (min-width: 700px) {
       font-size: 20px;
+    }
+  }
+
+  &--modal {
+    &:hover {
+      transition: all 0.3s;
+      color: $color-teal;
+      cursor: pointer;
+    }
+
+    @media only screen and (min-width: 700px) {
+      font-size: 24px;
     }
   }
 
@@ -27,14 +42,6 @@
 
     @media only screen and (min-width: 700px) {
       font-size: 18px;
-    }
-  }
-
-  &--modal {
-    &:hover {
-      transition: all 0.3s;
-      color: $color-teal;
-      cursor: pointer;
     }
   }
 }
@@ -47,7 +54,8 @@
     font-size: 15px;
 
     &--primary,
-    &--about {
+    &--about,
+    &--modal {
       font-size: 16px;
     }
 

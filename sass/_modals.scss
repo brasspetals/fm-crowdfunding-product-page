@@ -8,6 +8,10 @@
   grid-gap: 22px; // 24 for text, this is temp
   z-index: 100;
 
+  @media only screen and (min-width: 700px) {
+    top: 184px;
+  }
+
   &--hidden {
     display: none;
   }

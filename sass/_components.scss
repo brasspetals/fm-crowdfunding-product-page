@@ -55,7 +55,7 @@
   }
 
   &--pledge,
-  &--modal {
+  &--modal-form {
     font-size: 13px;
     padding: 16px 32px;
 
@@ -168,14 +168,16 @@
     filter: opacity(0.45);
 
     & .heading--modal:hover {
-      cursor: auto;
+      cursor: default;
       color: $color-black;
     }
   }
 
   &--modal {
-    padding: 24px 22px 32px;
-    grid-gap: 35px;
+    // padding: 24px 22px 32px;
+    // grid-gap: 35px;
+    padding: 22px; // will need larger bottom padding
+    grid-gap: 22px;
   }
 
   &__header {
@@ -192,13 +194,11 @@
       justify-content: start;
       grid-auto-flow: column;
       grid-gap: 16px;
-      padding-top: 8px;
       align-items: center;
     }
   }
 
   &__footer {
-    padding-top: 2px;
     display: grid;
     justify-content: start;
     grid-gap: 24px;
@@ -211,6 +211,7 @@
 
   &__modal-form {
     display: none;
+    padding-top: 30px;
   }
 }
 

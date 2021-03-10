@@ -76,19 +76,27 @@ const formBtns = document.querySelectorAll(".btn--modal-form");
 // Open selection modal, apply overlay
 function openModal() {
   modalPledges.classList.remove("modal--hidden");
+  modalPledges.classList.add("fadeIn");
   overlay.classList.remove("overlay--hidden");
   overlay.classList.add("overlay--modal");
+
+  window.scrollTo(0, 0);
+
+  document.querySelector(".wrapper").style.position = "fixed";
 }
 
 // Close selection modal, remove overlay, reset forms
 function closeModal() {
   modalPledges.classList.add("modal--hidden");
+  modalPledges.classList.remove("fadeIn");
   overlay.classList.add("overlay--hidden");
   overlay.classList.remove("overlay--modal");
 
   document.querySelectorAll(".pledge__modal-form").forEach((form) => {
     form.reset();
   });
+
+  document.querySelector(".wrapper").style.position = "relative";
 }
 
 // All pledge buttons open selection modal
@@ -105,30 +113,6 @@ btnCloseModal.addEventListener("click", closeModal);
 
 ////////////////////////////////
 // Submitting a Pledge
-
-formBtns.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    // prevents page refresh
-    e.preventDefault();
-
-    // decrement remaining selected reward by one (if applicable) and update DOM
-    if (btn.dataset.group != "noreward") {
-      updateReward(btn);
-    }
-
-    // add one to total number of backers
-    totalBackers++;
-    document.getElementById(
-      "num-backers"
-    ).innerHTML = totalBackers.toLocaleString();
-
-    // add amount pledged to total amount backed & update silder percentage
-    updateTotalBacked(btn);
-
-    // close selection modal and open thank you modal
-    closeModal();
-  });
-});
 
 function updateReward(btn) {
   const reward = btn.dataset.group;
@@ -164,3 +148,27 @@ function updateTotalBacked(btn) {
     ".statistics__slider-inner"
   ).style.width = `${percentageBacked}%`;
 }
+
+formBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    // prevents page refresh
+    e.preventDefault();
+
+    // decrement remaining selected reward by one (if applicable) and update DOM
+    if (btn.dataset.group != "noreward") {
+      updateReward(btn);
+    }
+
+    // add one to total number of backers
+    totalBackers++;
+    document.getElementById(
+      "num-backers"
+    ).innerHTML = totalBackers.toLocaleString();
+
+    // add amount pledged to total amount backed & update silder percentage
+    updateTotalBacked(btn);
+
+    // close selection modal and open thank you modal
+    closeModal();
+  });
+});

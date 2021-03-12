@@ -79,7 +79,6 @@ const radioInputs = document.querySelectorAll(".radio__input");
 // Open selection modal, apply overlay
 function openModal() {
   modalPledges.classList.remove("modal--hidden");
-  modalPledges.classList.add("fadeIn");
   overlay.classList.remove("overlay--hidden");
   overlay.classList.add("overlay--modal");
 
@@ -148,20 +147,19 @@ radioInputs.forEach((input) => {
 // Submitting a Pledge
 
 function updateReward(btn) {
-  // get data for which reward was selected
-  const reward = btn.dataset.group;
+  // get number left of reward selected
+  let numRemaining = parseInt(
+    document.querySelector(`.number--${btn.dataset.group}`).innerHTML
+  );
 
   // decrement remaining rewards by 1, update DOM
-  if (reward === "bamboo") {
-    numBamboo--;
-    document.querySelectorAll(".numBamboo").forEach((item) => {
-      item.innerHTML = numBamboo;
-    });
-  } else if (reward === "black") {
-    numBlack--;
-    document.querySelectorAll(".numBlack").forEach((item) => {
-      item.innerHTML = numBlack;
-    });
+  if (numRemaining > 0) {
+    numRemaining--;
+    document
+      .querySelectorAll(`.number--${btn.dataset.group}`)
+      .forEach((item) => {
+        item.innerHTML = numRemaining;
+      });
   }
 }
 

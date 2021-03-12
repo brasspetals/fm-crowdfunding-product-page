@@ -35,6 +35,7 @@ function toggleMenu() {
   }
 }
 
+// Event Listener
 btnMenu.addEventListener("click", toggleMenu);
 
 //////////////////////
@@ -53,6 +54,7 @@ function bookmarkProject() {
   }
 }
 
+// Event Listener
 bookmark.addEventListener("click", bookmarkProject);
 
 /////////////
@@ -125,24 +127,22 @@ btnPledge.forEach((btn) => {
 });
 
 // Add styles to selected/checked modal pledge, remove styles if not selected/checked
-radioInputs.forEach(function (input) {
-  input.addEventListener("click", function (i) {
-    for (let i = 0; i < radioInputs.length; i++) {
-      if (radioInputs[i].checked) {
-        radioInputs[i]
-          .closest(".pledge--modal")
-          .classList.add("pledge--selected");
-      } else if (!radioInputs[i].checked) {
-        radioInputs[i]
-          .closest(".pledge--modal")
-          .classList.remove("pledge--selected");
-      }
+function updateCheckedStyles() {
+  radioInputs.forEach((input) => {
+    if (input.checked) {
+      input.closest(".pledge--modal").classList.add("pledge--selected");
+    } else if (!input.checked) {
+      input.closest(".pledge--modal").classList.remove("pledge--selected");
     }
   });
-});
+}
 
+// Event Listeners
 btnPrimary.addEventListener("click", openModal);
 btnCloseModal.addEventListener("click", closeModal);
+radioInputs.forEach((input) => {
+  input.addEventListener("change", updateCheckedStyles);
+});
 
 ////////////////////////////////
 // Submitting a Pledge
@@ -152,12 +152,12 @@ function updateReward(btn) {
   const reward = btn.dataset.group;
 
   // decrement remaining rewards by 1, update DOM
-  if (reward == "bamboo") {
+  if (reward === "bamboo") {
     numBamboo--;
     document.querySelectorAll(".numBamboo").forEach((item) => {
       item.innerHTML = numBamboo;
     });
-  } else if (reward == "black") {
+  } else if (reward === "black") {
     numBlack--;
     document.querySelectorAll(".numBlack").forEach((item) => {
       item.innerHTML = numBlack;
@@ -188,6 +188,7 @@ function updateTotalBacked(btn) {
   ).style.width = `${percentageBacked}%`;
 }
 
+// Event Listener
 formBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     // prevents page refresh, which would reset variables
@@ -211,6 +212,3 @@ formBtns.forEach((btn) => {
     closeModal();
   });
 });
-
-///////////////////////////
-// Example code

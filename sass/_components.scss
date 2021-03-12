@@ -180,6 +180,18 @@
     grid-gap: 22px;
   }
 
+  &--selected {
+    border: 2px solid $color-teal;
+
+    & * .radio__control {
+      background: radial-gradient($color-teal 40%, transparent 41%);
+    }
+
+    & > .pledge__modal-form {
+      display: block;
+    }
+  }
+
   &__header {
     display: grid;
     grid-gap: 4px;
@@ -223,6 +235,7 @@
     opacity: 0;
     height: 0;
     width: 0;
+    position: absolute;
   }
 
   &__control {
@@ -230,19 +243,35 @@
     height: 24px;
     border-radius: 50%;
     border: 1px solid $color-pledge-border;
+    transition: all 0.3s;
+  }
+
+  &__label {
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      & * .heading--modal {
+        color: $color-teal;
+      }
+
+      & > .radio__control {
+        border: 1px solid $color-teal;
+      }
+    }
   }
 }
 
-input[type="radio"]:checked {
-  & + .pledge {
-    border: 2px solid $color-teal;
+// input[type="radio"]:checked {
+//   & + .pledge {
+//     border: 2px solid $color-teal;
 
-    * .radio__control {
-      background: radial-gradient($color-teal 40%, transparent 41%);
-    }
+//     * .radio__control {
+//       background: radial-gradient($color-teal 40%, transparent 41%);
+//     }
 
-    > .pledge__modal-form {
-      display: block;
-    }
-  }
-}
+//     > .pledge__modal-form {
+//       display: block;
+//     }
+//   }
+// }

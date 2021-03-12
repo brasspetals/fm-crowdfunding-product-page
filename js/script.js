@@ -69,6 +69,7 @@ let numBamboo = 101;
 let numBlack = 64;
 let numMahogany = 0;
 const formBtns = document.querySelectorAll(".btn--modal-form");
+const radioInputs = document.querySelectorAll(".radio__input");
 
 ////////////////////////////////
 // Selection Modal Open/Close
@@ -80,8 +81,10 @@ function openModal() {
   overlay.classList.remove("overlay--hidden");
   overlay.classList.add("overlay--modal");
 
+  // scroll to top of window
   window.scrollTo(0, 0);
 
+  // fix main page content when modal is open
   document.querySelector(".wrapper").style.position = "fixed";
 }
 
@@ -92,10 +95,18 @@ function closeModal() {
   overlay.classList.add("overlay--hidden");
   overlay.classList.remove("overlay--modal");
 
+  // reset modal forms on close
   document.querySelectorAll(".pledge__modal-form").forEach((form) => {
     form.reset();
   });
 
+  // deselect/uncheck all radio inputs on close
+  radioInputs.forEach((input) => {
+    input.checked = "false";
+    input.closest(".pledge--modal").classList.remove("pledge--selected");
+  });
+
+  // remove "position: fixed" from main content when modal is closed
   document.querySelector(".wrapper").style.position = "relative";
 }
 
@@ -104,7 +115,29 @@ btnPledge.forEach((btn) => {
   btn.addEventListener("click", () => {
     // Mark corresponding modal radio input as checked
     document.getElementById(`reward-${btn.dataset.group}`).checked = true;
+    document
+      .getElementById(`reward-${btn.dataset.group}`)
+      .closest(".pledge--modal")
+      .classList.add("pledge--selected");
+
     openModal();
+  });
+});
+
+// Add styles to selected/checked modal pledge, remove styles if not selected/checked
+radioInputs.forEach(function (input) {
+  input.addEventListener("click", function (i) {
+    for (let i = 0; i < radioInputs.length; i++) {
+      if (radioInputs[i].checked) {
+        radioInputs[i]
+          .closest(".pledge--modal")
+          .classList.add("pledge--selected");
+      } else if (!radioInputs[i].checked) {
+        radioInputs[i]
+          .closest(".pledge--modal")
+          .classList.remove("pledge--selected");
+      }
+    }
   });
 });
 
@@ -115,8 +148,10 @@ btnCloseModal.addEventListener("click", closeModal);
 // Submitting a Pledge
 
 function updateReward(btn) {
+  // get data for which reward was selected
   const reward = btn.dataset.group;
 
+  // decrement remaining rewards by 1, update DOM
   if (reward == "bamboo") {
     numBamboo--;
     document.querySelectorAll(".numBamboo").forEach((item) => {
@@ -131,19 +166,23 @@ function updateReward(btn) {
 }
 
 function updateTotalBacked(btn) {
+  // get amount pledge from submitted form
   const amountPledged = parseInt(
     document.getElementById(`amount-${btn.dataset.group}`).value
   );
 
+  // add amount pledge to total
   totalBacked += amountPledged;
 
+  // update new total in DOM
   document.getElementById(
     "total-backed"
   ).innerHTML = `$${totalBacked.toLocaleString()}`;
 
-  // update slider width to new percentage of total backed
+  // calculate new percentage of goal from updated total
   const percentageBacked = Math.floor((totalBacked / amountGoal) * 100);
 
+  // update slider width with new percentage
   document.querySelector(
     ".statistics__slider-inner"
   ).style.width = `${percentageBacked}%`;
@@ -151,7 +190,7 @@ function updateTotalBacked(btn) {
 
 formBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    // prevents page refresh
+    // prevents page refresh, which would reset variables
     e.preventDefault();
 
     // decrement remaining selected reward by one (if applicable) and update DOM
@@ -172,3 +211,6 @@ formBtns.forEach((btn) => {
     closeModal();
   });
 });
+
+///////////////////////////
+// Example code

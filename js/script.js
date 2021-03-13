@@ -67,9 +67,6 @@ const btnCloseModal = document.querySelector(".btn--close-modal");
 const amountGoal = 100000;
 let totalBacked = 89914;
 let totalBackers = 5007;
-let numBamboo = 101;
-let numBlack = 64;
-let numMahogany = 0;
 const formBtns = document.querySelectorAll(".btn--modal-form");
 const radioInputs = document.querySelectorAll(".radio__input");
 
@@ -122,6 +119,12 @@ btnPledge.forEach((btn) => {
       .classList.add("pledge--selected");
 
     openModal();
+
+    // scroll to selected pledge
+    const selected = document.getElementById(
+      `modalPledge--${btn.dataset.group}`
+    );
+    selected.scrollIntoView();
   });
 });
 
@@ -161,6 +164,7 @@ function updateReward(btn) {
         item.innerHTML = numRemaining;
       });
   }
+  // if !numRemaining > 0 add update DOM to disable
 }
 
 function updateTotalBacked(btn) {

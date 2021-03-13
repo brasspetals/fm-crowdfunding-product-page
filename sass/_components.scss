@@ -261,17 +261,3 @@
     }
   }
 }
-
-// input[type="radio"]:checked {
-//   & + .pledge {
-//     border: 2px solid $color-teal;
-
-//     * .radio__control {
-//       background: radial-gradient($color-teal 40%, transparent 41%);
-//     }
-
-//     > .pledge__modal-form {
-//       display: block;
-//     }
-//   }
-// }

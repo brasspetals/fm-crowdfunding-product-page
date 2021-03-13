@@ -250,7 +250,7 @@
       <div class="container--modal-pledges">
         <!-- Select No Reward, No Minimum -->
         <div class="container">
-          <div class="pledge pledge--modal">
+          <div class="pledge pledge--modal" id="modalPledge--noreward">
             <label
               for="reward-none"
               class="pledge__header pledge__header--modal radio__label"
@@ -301,7 +301,7 @@
         </div>
         <!-- Select Bamboo, $25 Minimum -->
         <div class="container">
-          <div class="pledge pledge--modal">
+          <div class="pledge pledge--modal" id="modalPledge--bamboo">
             <label
               for="reward-bamboo"
               class="pledge__header pledge__header--modal radio__label"
@@ -359,7 +359,7 @@
         </div>
         <!-- Select Black, $75 Minimum -->
         <div class="container">
-          <div class="pledge pledge--modal">
+          <div class="pledge pledge--modal" id="modalPledge--black">
             <label
               for="reward-black"
               class="pledge__header pledge__header--modal radio__label"
@@ -417,7 +417,10 @@
         </div>
         <!-- Mahogany Edition, Unavailable -->
         <div class="container">
-          <div class="pledge pledge--modal pledge--unavailable">
+          <div
+            class="pledge pledge--modal pledge--unavailable"
+            id="modalPledge--mahogany"
+          >
             <label
               for="reward-mahogany"
               class="pledge__header pledge__header--modal"

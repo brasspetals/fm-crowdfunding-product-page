@@ -123,7 +123,11 @@ btnPledge.forEach((btn) => {
     const selected = document.getElementById(
       `modalPledge--${btn.dataset.group}`
     );
-    selected.scrollIntoView();
+
+    selected.scrollIntoView({
+      behavior: "auto",
+      block: "center",
+    });
   });
 });
 

@@ -62,20 +62,20 @@ bookmark.addEventListener("click", bookmarkProject);
 ///////////
 const btnPrimary = document.querySelector(".btn--primary");
 const btnPledge = document.querySelectorAll(".btn--pledge");
-const modalPledges = document.querySelector(".modal");
+const modalSelection = document.querySelector(".modal");
 const btnCloseModal = document.querySelector(".btn--close-modal");
 const amountGoal = 100000;
 let totalBacked = 89914;
 let totalBackers = 5007;
-const formBtns = document.querySelectorAll(".btn--modal-form");
 const radioInputs = document.querySelectorAll(".radio__input");
+const pledgeForms = document.querySelectorAll(".pledge__modal-form");
 
 ////////////////////////////////
 // Selection Modal Open/Close
 
 // Open selection modal, apply overlay
 function openModal() {
-  modalPledges.classList.remove("modal--hidden");
+  modalSelection.classList.remove("modal--hidden");
   overlay.classList.remove("overlay--hidden");
   overlay.classList.add("overlay--modal");
 
@@ -88,8 +88,7 @@ function openModal() {
 
 // Close selection modal, remove overlay, reset forms
 function closeModal() {
-  modalPledges.classList.add("modal--hidden");
-  modalPledges.classList.remove("fadeIn");
+  modalSelection.classList.add("modal--hidden");
   overlay.classList.add("overlay--hidden");
   overlay.classList.remove("overlay--modal");
 
@@ -149,17 +148,17 @@ radioInputs.forEach((input) => {
 ////////////////////////////////
 // Submitting a Pledge
 
-function updateReward(btn) {
+function updateReward(form) {
   // get number left of reward selected
   let numRemaining = parseInt(
-    document.querySelector(`.number--${btn.dataset.group}`).innerHTML
+    document.querySelector(`.number--${form.dataset.group}`).innerHTML
   );
 
   // decrement remaining rewards by 1, update DOM
   if (numRemaining > 0) {
     numRemaining--;
     document
-      .querySelectorAll(`.number--${btn.dataset.group}`)
+      .querySelectorAll(`.number--${form.dataset.group}`)
       .forEach((item) => {
         item.innerHTML = numRemaining;
       });
@@ -167,10 +166,10 @@ function updateReward(btn) {
   // if !numRemaining > 0 add update DOM to disable
 }
 
-function updateTotalBacked(btn) {
+function updateTotalBacked(form) {
   // get amount pledge from submitted form
   const amountPledged = parseInt(
-    document.getElementById(`amount-${btn.dataset.group}`).value
+    document.getElementById(`amount-${form.dataset.group}`).value
   );
 
   // add amount pledge to total
@@ -191,14 +190,14 @@ function updateTotalBacked(btn) {
 }
 
 // Event Listener
-formBtns.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
+pledgeForms.forEach((form) => {
+  form.addEventListener("submit", (e) => {
     // prevents page refresh, which would reset variables
     e.preventDefault();
 
     // decrement remaining selected reward by one (if applicable) and update DOM
-    if (btn.dataset.group != "noreward") {
-      updateReward(btn);
+    if (form.dataset.group != "noreward") {
+      updateReward(form);
     }
 
     // add one to total number of backers
@@ -208,7 +207,7 @@ formBtns.forEach((btn) => {
     ).innerHTML = totalBackers.toLocaleString();
 
     // add amount pledged to total amount backed & update silder percentage
-    updateTotalBacked(btn);
+    updateTotalBacked(form);
 
     // close selection modal and open thank you modal
     closeModal();

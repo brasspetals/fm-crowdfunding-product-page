@@ -336,21 +336,27 @@
             </div>
             <form action="/" class="pledge__modal-form" data-group="bamboo">
               <p class="paragraph paragraph--modal-form">Enter your pledge</p>
-              <input
-                type="number"
-                name="pledge"
-                id="amount-bamboo"
-                min="25"
-                value="25"
-                required
-              />
-              <button
-                type="submit"
-                id="submit-bamboo"
-                class="btn btn--modal-form btn--teal"
-              >
-                Continue
-              </button>
+              <div class="container--modal-form-inputs">
+                <label class="container--number">
+                  <span class="number number--label">$</span>
+                  <input
+                    class="number number--input"
+                    type="number"
+                    name="pledge"
+                    id="amount-bamboo"
+                    min="25"
+                    value="25"
+                    required
+                  />
+                </label>
+                <button
+                  type="submit"
+                  id="submit-bamboo"
+                  class="btn btn--modal-form btn--teal"
+                >
+                  Continue
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -474,11 +480,15 @@
       </div>
     </div>
     <!-- Success modal start -->
-
-    <!-- Thanks for your support! Your pledge brings us one step closer to sharing
-    Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our
-    campaign is completed. Got it! -->
-
-    <!-- Success modal end -->
+    <div class="modal modal--success modal--hidden section">
+      <img src="./images/icon-check.svg" alt="" />
+      <h2 class="heading heading--secondary">Thanks for your support!</h2>
+      <p class="paragraph paragraph--modal">
+        Your pledge brings us one step closer to sharing Mastercraft Bamboo
+        Monitor Riser worldwide. You will get an email once our campaign is
+        completed.
+      </p>
+      <button class="btn btn--teal btn--success">Got it!</button>
+    </div>
   </body>
 </html>

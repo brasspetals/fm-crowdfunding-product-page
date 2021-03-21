@@ -63,7 +63,9 @@ bookmark.addEventListener("click", bookmarkProject);
 const btnPrimary = document.querySelector(".btn--primary");
 const btnPledge = document.querySelectorAll(".btn--pledge");
 const modalSelection = document.querySelector(".modal");
+const modalSuccess = document.querySelector(".modal--success");
 const btnCloseModal = document.querySelector(".btn--close-modal");
+const btnCloseSuccess = document.querySelector(".btn--success");
 const amountGoal = 100000;
 let totalBacked = 89914;
 let totalBackers = 5007;
@@ -89,9 +91,22 @@ function openModal() {
 // Close selection modal, remove overlay, reset forms
 function closeModal() {
   modalSelection.classList.add("modal--hidden");
+  modalSuccess.classList.add("modal--hidden");
   overlay.classList.add("overlay--hidden");
   overlay.classList.remove("overlay--modal");
 
+  // scroll to top of window
+  window.scrollTo(0, 0);
+
+  // reset selection modal forms and pledge selection
+  selectionModalReset();
+
+  // remove "position: fixed" from main content when modal is closed
+  document.querySelector(".wrapper").style.position = "relative";
+}
+
+// Reset selection modal
+function selectionModalReset() {
   // reset modal forms on close
   document.querySelectorAll(".pledge__modal-form").forEach((form) => {
     form.reset();
@@ -102,9 +117,6 @@ function closeModal() {
     input.checked = "false";
     input.closest(".pledge--modal").classList.remove("pledge--selected");
   });
-
-  // remove "position: fixed" from main content when modal is closed
-  document.querySelector(".wrapper").style.position = "relative";
 }
 
 // All pledge buttons open selection modal
@@ -145,6 +157,7 @@ function updateCheckedStyles() {
 // Event Listeners
 btnPrimary.addEventListener("click", openModal);
 btnCloseModal.addEventListener("click", closeModal);
+btnCloseSuccess.addEventListener("click", closeModal);
 radioInputs.forEach((input) => {
   input.addEventListener("change", updateCheckedStyles);
 });
@@ -193,6 +206,18 @@ function updateTotalBacked(form) {
   ).style.width = `${percentageBacked}%`;
 }
 
+function successModal() {
+  // reset selection modal forms and selected pledge
+  selectionModalReset();
+
+  // hide selection modal and show thank you modal
+  modalSelection.classList.add("modal--hidden");
+  modalSuccess.classList.remove("modal--hidden");
+
+  // scroll to top of window
+  window.scrollTo(0, 0);
+}
+
 // Event Listener
 pledgeForms.forEach((form) => {
   form.addEventListener("submit", (e) => {
@@ -214,6 +239,6 @@ pledgeForms.forEach((form) => {
     updateTotalBacked(form);
 
     // close selection modal and open thank you modal
-    closeModal();
+    successModal();
   });
 });

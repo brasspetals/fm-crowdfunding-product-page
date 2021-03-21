@@ -5,7 +5,7 @@
   transform: translateX(-50%);
   width: 87.5%;
   display: grid;
-  grid-gap: 22px; // 24 for text, this is temp
+  grid-gap: 24px;
   z-index: 100;
 
   @media only screen and (min-width: 700px) {
@@ -20,5 +20,10 @@
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
+  }
+
+  &--success {
+    justify-items: center;
+    text-align: center;
   }
 }

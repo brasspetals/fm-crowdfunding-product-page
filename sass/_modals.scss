@@ -26,10 +26,16 @@
     justify-items: center;
     text-align: center;
     max-width: 540px;
-    top: 142px;
+    // top: 142px;
 
     @media only screen and (min-width: 700px) {
-      top: 460px;
+      // top: 460px;
+
+      & img {
+        width: 88px;
+        height: auto;
+        margin-bottom: 24px;
+      }
     }
   }
 }

@@ -25,5 +25,11 @@
   &--success {
     justify-items: center;
     text-align: center;
+    max-width: 540px;
+    top: 142px;
+
+    @media only screen and (min-width: 700px) {
+      top: 460px;
+    }
   }
 }

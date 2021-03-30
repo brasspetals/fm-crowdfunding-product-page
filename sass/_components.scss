@@ -62,11 +62,11 @@
 
   &--reward {
     font-size: 13px;
-    padding: 16px 33px;
+    padding: 16px 0;
+    width: 158px;
 
     &:disabled {
       background-color: $color-gray;
-      padding: 16px 38px;
       cursor: unset;
     }
   }

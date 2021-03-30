@@ -3,16 +3,18 @@
 ////////////
 const overlay = document.querySelector(".overlay");
 
-////////////////////////////////
-// Event Listener
-overlay.addEventListener("click", function () {
-  // Close mobile menu and modals when clicking on the overlay
+// Close mobile menu and modals when clicking on the overlay
+function overlayClose() {
   if (overlay.classList.contains("overlay--modal")) {
     closeModal();
   } else {
     toggleMenu();
   }
-});
+}
+
+////////////////////////////////
+// Event Listener
+overlay.addEventListener("click", overlayClose);
 
 //////////////////
 // Mobile Menu //
@@ -131,14 +133,8 @@ function updateCheckedStyles() {
 // Event Listeners
 
 btnPrimary.addEventListener("click", openModal);
-
 btnCloseModal.addEventListener("click", closeModal);
 btnCloseSuccess.addEventListener("click", closeModal);
-
-radioInputs.forEach((input) => {
-  input.addEventListener("change", updateCheckedStyles);
-});
-
 btnSelectReward.forEach((btn) => {
   btn.addEventListener("click", () => {
     // Mark corresponding modal radio input as checked
@@ -160,6 +156,19 @@ btnSelectReward.forEach((btn) => {
       block: "center",
     });
   });
+});
+
+radioInputs.forEach((input) => {
+  input.addEventListener("change", updateCheckedStyles);
+});
+
+modalContainer.addEventListener("click", (e) => {
+  // close modal if clicking outside it
+  if (e.target !== e.currentTarget) {
+    return;
+  } else {
+    closeModal();
+  }
 });
 
 ////////////////////////////////

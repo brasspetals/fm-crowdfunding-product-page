@@ -93,23 +93,6 @@
       @media only screen and (min-width: 500px) {
         padding: 0;
         position: relative;
-
-        &::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          bottom: -2px;
-          width: 100%;
-          height: 1px;
-          background-color: $color-white;
-          opacity: 0;
-          transition: all 0.3s ease;
-        }
-
-        &:hover::after {
-          opacity: 1;
-          transition: all 0.3s ease;
-        }
       }
 
       &:hover {
@@ -339,11 +322,6 @@
     align-items: center;
     justify-content: start;
     grid-gap: 9px;
-  }
-
-  &--modal-pledges {
-    display: grid;
-    grid-gap: 22px;
   }
 
   &--modal-header-text {

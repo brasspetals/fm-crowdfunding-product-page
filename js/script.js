@@ -3,8 +3,10 @@
 ////////////
 const overlay = document.querySelector(".overlay");
 
-// Close mobile menu and modals when clicking outside them
+////////////////////////////////
+// Event Listener
 overlay.addEventListener("click", function () {
+  // Close mobile menu and modals when clicking on the overlay
   if (overlay.classList.contains("overlay--modal")) {
     closeModal();
   } else {
@@ -35,6 +37,7 @@ function toggleMenu() {
   }
 }
 
+////////////////////////////////
 // Event Listener
 btnMenu.addEventListener("click", toggleMenu);
 
@@ -54,6 +57,7 @@ function bookmarkProject() {
   }
 }
 
+////////////////////////////////
 // Event Listener
 bookmark.addEventListener("click", bookmarkProject);
 
@@ -71,6 +75,7 @@ let totalBacked = 89914;
 let totalBackers = 5007;
 const radioInputs = document.querySelectorAll(".radio__input");
 const pledgeForms = document.querySelectorAll(".pledge__modal-form");
+const modalContainer = document.querySelector(".modal-container");
 
 ////////////////////////////////
 // Selection Modal Open/Close
@@ -80,9 +85,8 @@ function openModal() {
   modalSelection.classList.remove("modal--hidden");
   overlay.classList.remove("overlay--hidden");
   overlay.classList.add("overlay--modal");
-
-  // fix main page content when modal is open
-  // document.querySelector(".wrapper").style.position = "fixed";
+  document.body.classList.add("modal-open");
+  modalContainer.classList.remove("hidden");
 }
 
 // Close selection modal, remove overlay, reset forms
@@ -91,15 +95,11 @@ function closeModal() {
   modalSuccess.classList.add("modal--hidden");
   overlay.classList.add("overlay--hidden");
   overlay.classList.remove("overlay--modal");
-
-  // scroll to top of window
-  // window.scrollTo(0, 0);
+  document.body.classList.remove("modal-open");
+  modalContainer.classList.add("hidden");
 
   // reset selection modal forms and pledge selection
   selectionModalReset();
-
-  // remove "position: fixed" from main content when modal is closed
-  document.querySelector(".wrapper").style.position = "relative";
 }
 
 // Reset selection modal
@@ -112,7 +112,7 @@ function selectionModalReset() {
   // deselect/uncheck all radio inputs on close
   radioInputs.forEach((input) => {
     input.checked = "false";
-    input.closest(".pledge--modal").classList.remove("pledge--selected");
+    input.closest(".pledge").classList.remove("pledge--selected");
   });
 }
 
@@ -120,18 +120,17 @@ function selectionModalReset() {
 function updateCheckedStyles() {
   radioInputs.forEach((input) => {
     if (input.checked) {
-      input.closest(".pledge--modal").classList.add("pledge--selected");
+      input.closest(".pledge").classList.add("pledge--selected");
     } else if (!input.checked) {
-      input.closest(".pledge--modal").classList.remove("pledge--selected");
+      input.closest(".pledge").classList.remove("pledge--selected");
     }
   });
 }
 
+////////////////////////////////
 // Event Listeners
-btnPrimary.addEventListener("click", () => {
-  modalSelection.style.top = `${window.scrollY + 120}px`;
-  openModal();
-});
+
+btnPrimary.addEventListener("click", openModal);
 
 btnCloseModal.addEventListener("click", closeModal);
 btnCloseSuccess.addEventListener("click", closeModal);
@@ -146,10 +145,9 @@ btnSelectReward.forEach((btn) => {
     document.getElementById(`reward-${btn.dataset.group}`).checked = true;
     document
       .getElementById(`reward-${btn.dataset.group}`)
-      .closest(".pledge--modal")
+      .closest(".pledge")
       .classList.add("pledge--selected");
 
-    modalSelection.style.top = `${window.scrollY}px`;
     openModal();
 
     // scroll to selected pledge
@@ -215,12 +213,11 @@ function successModal() {
   // hide selection modal and show thank you modal
   modalSelection.classList.add("modal--hidden");
   modalSuccess.classList.remove("modal--hidden");
-
-  // scroll to top of window
-  // window.scrollTo(0, 0);
 }
 
-// Event Listener
+////////////////////////////////
+// Event Listeners
+
 pledgeForms.forEach((form) => {
   form.addEventListener("submit", (e) => {
     // prevents page refresh, which would reset variables

@@ -1,9 +1,9 @@
 .overlay {
   position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
+  height: 100%;
+  width: 100%;
   background-image: linear-gradient(rgba($color-black, 0.5), transparent);
   z-index: 10;
   transition: all 0.3s;
@@ -232,13 +232,33 @@
   background-color: $color-white;
   border-radius: 8px;
   border: 1px solid $color-pledge-border;
-  padding: 24px 22px;
+  // padding: 24px 24px 32px;
   width: 100%;
-  display: grid;
-  grid-gap: 23px;
+  // display: grid;
+  // grid-gap: 22px;
 
-  @media only screen and (min-width: 700px) {
-    padding: 36px 30px 30px;
+  // @media only screen and (min-width: 700px) {
+  //   padding: 36px 30px 30px;
+  // }
+
+  &__main-container {
+    width: 100%;
+    padding: 24px 24px 32px;
+    display: grid;
+    grid-gap: 22px;
+
+    &--noreward {
+      padding: 32px 24px;
+      grid-gap: 35px;
+    }
+
+    @media only screen and (min-width: 700px) {
+      padding: 36px 30px 30px;
+    }
+  }
+
+  &__form-container {
+    display: none;
   }
 
   &--unavailable {
@@ -250,13 +270,6 @@
     }
   }
 
-  &--modal {
-    // padding: 24px 22px 32px;
-    // grid-gap: 35px;
-    padding: 22px; // will need larger bottom padding
-    grid-gap: 22px;
-  }
-
   &--selected {
     border: 2px solid $color-teal;
 
@@ -264,7 +277,7 @@
       background: radial-gradient($color-teal 40%, transparent 41%);
     }
 
-    & > .pledge__modal-form {
+    & > .pledge__form-container {
       display: block;
     }
   }
@@ -299,7 +312,6 @@
   }
 
   &__modal-form {
-    display: none;
     padding-top: 30px;
     text-align: center;
   }

@@ -1,19 +1,35 @@
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 100;
+
+  &--hidden {
+    display: none;
+  }
+}
+
 .modal {
+  background-color: $color-white;
+  border-radius: 8px;
+  border: 1px solid $color-section-border;
+  padding: 32px 23px 39px;
+  width: 87.5%;
+  max-width: 730px;
   position: absolute;
   top: 120px;
   left: 50%;
   transform: translateX(-50%);
-  width: 87.5%;
   display: grid;
   grid-gap: 24px;
   z-index: 100;
 
   @media only screen and (min-width: 700px) {
-    top: 184px;
-  }
-
-  &--hidden {
-    display: none;
+    // top: 184px;
+    padding: 48px 48px;
   }
 
   &__header {
@@ -22,18 +38,25 @@
     justify-content: space-between;
   }
 
+  &__pledge-selection {
+    display: grid;
+    grid-gap: 22px;
+  }
+
+  &--hidden {
+    display: none;
+  }
+  /////////////////////////////
+  // Success / Completed Modal
   &--success {
     position: fixed;
     justify-items: center;
     text-align: center;
     max-width: 540px;
-    // top: 142px;
     top: 50%;
     transform: translate(-50%, -50%);
 
     @media only screen and (min-width: 700px) {
-      // top: 460px;
-
       & img {
         width: 88px;
         height: auto;
@@ -41,4 +64,13 @@
       }
     }
   }
+}
+
+.modal-open {
+  overflow: hidden;
+  // overflow-y: auto;
+}
+
+.hidden {
+  display: none;
 }

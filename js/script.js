@@ -128,7 +128,11 @@ function updateCheckedStyles() {
 }
 
 // Event Listeners
-btnPrimary.addEventListener("click", openModal);
+btnPrimary.addEventListener("click", () => {
+  modalSelection.style.top = `${window.scrollY + 120}px`;
+  openModal();
+});
+
 btnCloseModal.addEventListener("click", closeModal);
 btnCloseSuccess.addEventListener("click", closeModal);
 
@@ -145,6 +149,7 @@ btnSelectReward.forEach((btn) => {
       .closest(".pledge--modal")
       .classList.add("pledge--selected");
 
+    modalSelection.style.top = `${window.scrollY}px`;
     openModal();
 
     // scroll to selected pledge

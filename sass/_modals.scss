@@ -23,10 +23,13 @@
   }
 
   &--success {
+    position: fixed;
     justify-items: center;
     text-align: center;
     max-width: 540px;
     // top: 142px;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
     @media only screen and (min-width: 700px) {
       // top: 460px;

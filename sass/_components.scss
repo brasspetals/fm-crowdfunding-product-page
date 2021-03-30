@@ -52,15 +52,30 @@
 
   &--primary {
     font-size: 15px;
-    // padding: 18px 44px;
-    padding: 18.5px 40px;
+    padding: 18px 45px;
+    // padding: 18.5px 40px;
+
+    @media only screen and (min-width: 600px) {
+      padding: 18.5px 39px;
+    }
+  }
+
+  &--reward {
+    font-size: 13px;
+    padding: 16px 33px;
+
+    &:disabled {
+      background-color: $color-gray;
+      padding: 16px 38px;
+      cursor: unset;
+    }
   }
 
   &--pledge,
   &--modal-form,
   &--success {
     font-size: 13px;
-    padding: 16px 32px;
+    padding: 16px 33px;
 
     &:disabled {
       background-color: $color-gray;
@@ -140,6 +155,8 @@
     }
 
     @media only screen and (min-width: 600px) {
+      background-color: $color-bookmark-active;
+
       .bookmark__icon {
         transition: all 0.5s ease;
         transform: translateX(134px);
@@ -158,6 +175,54 @@
         transition: all 0.5s ease;
         transition-delay: 0.1s;
       }
+    }
+  }
+}
+
+// Rewards (About Section)
+.reward {
+  background-color: $color-white;
+  border-radius: 8px;
+  border: 1px solid $color-pledge-border;
+  padding: 23px 22px;
+  width: 100%;
+  display: grid;
+  grid-gap: 23px;
+
+  @media only screen and (min-width: 700px) {
+    padding: 36px 30px 30px;
+  }
+
+  &--unavailable {
+    filter: opacity(0.45);
+  }
+
+  &__header {
+    display: grid;
+    grid-gap: 4px;
+
+    @media only screen and (min-width: 600px) {
+      grid-auto-flow: column;
+      justify-content: space-between;
+    }
+  }
+
+  &__footer {
+    display: grid;
+    justify-content: start;
+    grid-gap: 24px;
+
+    @media only screen and (min-width: 600px) {
+      grid-auto-flow: column;
+      justify-content: space-between;
+    }
+
+    &-text {
+      display: grid;
+      grid-auto-flow: column;
+      align-items: center;
+      justify-content: start;
+      grid-gap: 9px;
     }
   }
 }

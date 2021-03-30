@@ -61,7 +61,7 @@ bookmark.addEventListener("click", bookmarkProject);
 // Modals //
 ///////////
 const btnPrimary = document.querySelector(".btn--primary");
-const btnPledge = document.querySelectorAll(".btn--pledge");
+const btnSelectReward = document.querySelectorAll(".btn--reward");
 const modalSelection = document.querySelector(".modal");
 const modalSuccess = document.querySelector(".modal--success");
 const btnCloseModal = document.querySelector(".btn--close-modal");
@@ -81,11 +81,8 @@ function openModal() {
   overlay.classList.remove("overlay--hidden");
   overlay.classList.add("overlay--modal");
 
-  // scroll to top of window
-  window.scrollTo(0, 0);
-
   // fix main page content when modal is open
-  document.querySelector(".wrapper").style.position = "fixed";
+  // document.querySelector(".wrapper").style.position = "fixed";
 }
 
 // Close selection modal, remove overlay, reset forms
@@ -96,7 +93,7 @@ function closeModal() {
   overlay.classList.remove("overlay--modal");
 
   // scroll to top of window
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
 
   // reset selection modal forms and pledge selection
   selectionModalReset();
@@ -119,8 +116,27 @@ function selectionModalReset() {
   });
 }
 
-// All pledge buttons open selection modal
-btnPledge.forEach((btn) => {
+// Add styles to selected/checked modal pledge, remove styles if not selected/checked
+function updateCheckedStyles() {
+  radioInputs.forEach((input) => {
+    if (input.checked) {
+      input.closest(".pledge--modal").classList.add("pledge--selected");
+    } else if (!input.checked) {
+      input.closest(".pledge--modal").classList.remove("pledge--selected");
+    }
+  });
+}
+
+// Event Listeners
+btnPrimary.addEventListener("click", openModal);
+btnCloseModal.addEventListener("click", closeModal);
+btnCloseSuccess.addEventListener("click", closeModal);
+
+radioInputs.forEach((input) => {
+  input.addEventListener("change", updateCheckedStyles);
+});
+
+btnSelectReward.forEach((btn) => {
   btn.addEventListener("click", () => {
     // Mark corresponding modal radio input as checked
     document.getElementById(`reward-${btn.dataset.group}`).checked = true;
@@ -141,25 +157,6 @@ btnPledge.forEach((btn) => {
       block: "center",
     });
   });
-});
-
-// Add styles to selected/checked modal pledge, remove styles if not selected/checked
-function updateCheckedStyles() {
-  radioInputs.forEach((input) => {
-    if (input.checked) {
-      input.closest(".pledge--modal").classList.add("pledge--selected");
-    } else if (!input.checked) {
-      input.closest(".pledge--modal").classList.remove("pledge--selected");
-    }
-  });
-}
-
-// Event Listeners
-btnPrimary.addEventListener("click", openModal);
-btnCloseModal.addEventListener("click", closeModal);
-btnCloseSuccess.addEventListener("click", closeModal);
-radioInputs.forEach((input) => {
-  input.addEventListener("change", updateCheckedStyles);
 });
 
 ////////////////////////////////
@@ -215,7 +212,7 @@ function successModal() {
   modalSuccess.classList.remove("modal--hidden");
 
   // scroll to top of window
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
 }
 
 // Event Listener

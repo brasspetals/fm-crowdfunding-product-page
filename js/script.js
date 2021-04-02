@@ -12,7 +12,7 @@ function overlayClose() {
   }
 }
 
-////////////////////////////////
+///////////////////
 // Event Listener
 overlay.addEventListener("click", overlayClose);
 
@@ -39,7 +39,7 @@ function toggleMenu() {
   }
 }
 
-////////////////////////////////
+///////////////////
 // Event Listener
 btnMenu.addEventListener("click", toggleMenu);
 
@@ -59,7 +59,7 @@ function bookmarkProject() {
   }
 }
 
-////////////////////////////////
+///////////////////
 // Event Listener
 bookmark.addEventListener("click", bookmarkProject);
 
@@ -79,12 +79,13 @@ const radioInputs = document.querySelectorAll(".radio__input");
 const pledgeForms = document.querySelectorAll(".pledge__modal-form");
 const modalContainer = document.querySelector(".modal-container");
 
-////////////////////////////////
+///////////////////////////////
 // Selection Modal Open/Close
 
 // Open selection modal, apply overlay
 function openModal() {
   modalSelection.classList.remove("modal--hidden");
+  modalSelection.classList.add("fadeIn");
   overlay.classList.remove("overlay--hidden");
   overlay.classList.add("overlay--modal");
   document.body.classList.add("modal-open");
@@ -129,7 +130,7 @@ function updateCheckedStyles() {
   });
 }
 
-////////////////////////////////
+////////////////////
 // Event Listeners
 
 btnPrimary.addEventListener("click", openModal);
@@ -171,7 +172,7 @@ modalContainer.addEventListener("click", (e) => {
   }
 });
 
-////////////////////////////////
+////////////////////////
 // Submitting a Pledge
 
 function updateReward(form) {
@@ -222,10 +223,11 @@ function successModal() {
   // hide selection modal and show thank you modal
   modalSelection.classList.add("modal--hidden");
   modalSuccess.classList.remove("modal--hidden");
+  modalSuccess.classList.add("fadeIn");
 }
 
-////////////////////////////////
-// Event Listeners
+///////////////////
+// Event Listener
 
 pledgeForms.forEach((form) => {
   form.addEventListener("submit", (e) => {

@@ -90,6 +90,7 @@ function openModal() {
   overlay.classList.add("overlay--modal");
   document.body.classList.add("modal-open");
   modalContainer.classList.remove("hidden");
+  modalSelection.focus();
 }
 
 // Close selection modal, remove overlay, reset forms
@@ -224,6 +225,7 @@ function successModal() {
   modalSelection.classList.add("modal--hidden");
   modalSuccess.classList.remove("modal--hidden");
   modalSuccess.classList.add("fadeIn");
+  modalSuccess.focus();
 }
 
 ///////////////////

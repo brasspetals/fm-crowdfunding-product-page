@@ -3,8 +3,8 @@
 ////////////
 const overlay = document.querySelector(".overlay");
 
-// Close mobile menu and modals when clicking on the overlay
 function overlayClose() {
+  // close mobile menu and modals when clicking on the overlay
   if (overlay.classList.contains("overlay--modal")) {
     closeModal();
   } else {
@@ -23,13 +23,13 @@ const btnMenu = document.querySelector(".btn--menu");
 const btnMenuIcon = document.querySelector(".menu-icon");
 const nav = document.querySelector(".navigation__list");
 
-// Toggle mobile nav and overlay visibility
 function toggleMenu() {
+  // toggle mobile nav and overlay visibility
   nav.classList.toggle("navigation__list--hidden");
   overlay.classList.toggle("overlay--hidden");
   document.body.classList.toggle("disable-scroll");
 
-  // Change menu button icon and aria-expanded
+  // change menu button icon and aria-expanded
   if (nav.classList.contains("navigation__list--hidden")) {
     btnMenuIcon.src = "./images/icon-hamburger.svg";
     btnMenu.setAttribute("aria-expanded", "false");
@@ -48,7 +48,7 @@ btnMenu.addEventListener("click", toggleMenu);
 ////////////////////
 const bookmark = document.querySelector(".bookmark");
 
-// Toggle bookmark active styles
+// toggle bookmark active styles
 function bookmarkProject() {
   bookmark.classList.toggle("bookmark--active");
 
@@ -82,19 +82,19 @@ const modalContainer = document.querySelector(".modal-container");
 ///////////////////////////////
 // Selection Modal Open/Close
 
-// Open selection modal, apply overlay
 function openModal() {
+  // open selection modal, apply overlay
   modalSelection.classList.remove("modal--hidden");
   modalSelection.classList.add("fadeIn");
   overlay.classList.remove("overlay--hidden");
   overlay.classList.add("overlay--modal");
   document.body.classList.add("modal-open");
   modalContainer.classList.remove("hidden");
-  modalSelection.focus();
+  modalSelection.querySelector("h2").focus();
 }
 
-// Close selection modal, remove overlay, reset forms
 function closeModal() {
+  // close selection modal, remove overlay
   modalSelection.classList.add("modal--hidden");
   modalSuccess.classList.add("modal--hidden");
   overlay.classList.add("overlay--hidden");
@@ -106,7 +106,6 @@ function closeModal() {
   selectionModalReset();
 }
 
-// Reset selection modal
 function selectionModalReset() {
   // reset modal forms on close
   document.querySelectorAll(".pledge__modal-form").forEach((form) => {
@@ -120,10 +119,11 @@ function selectionModalReset() {
   });
 }
 
-// Add styles to selected/checked modal pledge, remove styles if not selected/checked
 function updateCheckedStyles() {
+  // add styles to selected/checked modal pledge, remove styles if not selected/checked
   radioInputs.forEach((input) => {
     if (input.checked) {
+      input.focus();
       input.closest(".pledge").classList.add("pledge--selected");
     } else if (!input.checked) {
       input.closest(".pledge").classList.remove("pledge--selected");
@@ -131,15 +131,16 @@ function updateCheckedStyles() {
   });
 }
 
-////////////////////
+///////////////////////
 // Event Listeners
 
+//////////////
+// Open Modal
+
 btnPrimary.addEventListener("click", openModal);
-btnCloseModal.addEventListener("click", closeModal);
-btnCloseSuccess.addEventListener("click", closeModal);
 btnSelectReward.forEach((btn) => {
   btn.addEventListener("click", () => {
-    // Mark corresponding modal radio input as checked
+    // mark corresponding modal radio input as checked
     document.getElementById(`reward-${btn.dataset.group}`).checked = true;
     document
       .getElementById(`reward-${btn.dataset.group}`)
@@ -162,6 +163,19 @@ btnSelectReward.forEach((btn) => {
 
 radioInputs.forEach((input) => {
   input.addEventListener("change", updateCheckedStyles);
+});
+
+//////////////
+//Close Modal
+
+btnCloseModal.addEventListener("click", closeModal);
+btnCloseSuccess.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", (event) => {
+  // close modal by pressing "escape" key
+  if (event.key == "Escape") {
+    closeModal();
+  }
 });
 
 modalContainer.addEventListener("click", (e) => {

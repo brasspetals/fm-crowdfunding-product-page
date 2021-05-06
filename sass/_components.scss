@@ -339,6 +339,16 @@
     height: 0;
     width: 0;
     position: absolute;
+
+    &:focus {
+      & ~ .pledge__header-text > .heading--modal {
+        color: $color-teal;
+      }
+
+      & + .radio__control {
+        border: 1px solid $color-teal;
+      }
+    }
   }
 
   &__control {

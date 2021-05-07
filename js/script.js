@@ -89,7 +89,6 @@ function openModal() {
   overlay.classList.add("overlay--modal");
   document.body.classList.add("modal-open");
   modalContainer.classList.remove("hidden");
-  modalSelection.querySelector("h2").focus();
 }
 
 ///////////////////////////////
@@ -99,12 +98,8 @@ btnSelectReward.forEach((btn) => {
   btn.addEventListener("click", () => {
     // mark corresponding modal radio input as checked
     document.getElementById(`reward-${btn.dataset.group}`).checked = true;
-    document
-      .getElementById(`reward-${btn.dataset.group}`)
-      .closest(".pledge")
-      .classList.add("pledge--selected");
-
     openModal();
+    updateCheckedStyles();
 
     // scroll to selected pledge
     const selected = document.getElementById(

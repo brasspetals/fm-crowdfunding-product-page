@@ -318,15 +318,30 @@
       grid-area: number;
       justify-self: end;
     }
+
+    &-text {
+      display: grid;
+      grid-auto-flow: column;
+      align-items: center;
+      justify-content: start;
+      grid-gap: 9px;
+    }
   }
 
   &__form-container {
     display: none;
+    border-top: 1px solid $color-pledge-border;
+    width: 100%;
   }
 
-  &__modal-form {
-    padding-top: 30px;
+  &__form {
+    padding: 24px 32px;
+    display: grid;
     text-align: center;
+
+    &-inputs {
+      display: grid;
+    }
   }
 }
 

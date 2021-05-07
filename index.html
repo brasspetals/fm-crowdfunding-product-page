@@ -264,7 +264,7 @@
                   </h3>
                 </div>
               </label>
-              <div class="pledge__description pledge__description--modal">
+              <div class="pledge__description">
                 <p class="paragraph paragraph--modal">
                   Choose to support us without a reward if you simply believe in
                   our project. As a backer, you will be signed up to receive
@@ -273,10 +273,10 @@
               </div>
             </div>
             <div class="pledge__form-container">
-              <form action="/" class="pledge__modal-form" data-group="noreward">
-                <p class="paragraph paragraph--modal-form">Enter your pledge</p>
-                <label for="pledge-noreward"
-                  >$
+              <form action="/" class="pledge__form" data-group="noreward">
+                <p class="paragraph paragraph--form">Enter your pledge</p>
+                <label for="amount-noreward">
+                  <span>$</span>
                   <input
                     type="number"
                     name="pledge-noreward"
@@ -318,44 +318,41 @@
                   </p>
                 </div>
               </label>
-              <div class="pledge__description pledge__description--modal">
+              <div class="pledge__description">
                 <p class="paragraph paragraph--modal">
                   You get an ergonomic stand made of natural bamboo. You've
                   helped us launch our promotional campaign, and you’ll be added
                   to a special Backer member list.
                 </p>
               </div>
-              <div class="pledge__footer pledge__footer--modal">
-                <div class="container--pledge-footer-text">
+              <div class="pledge__footer">
+                <div class="pledge__footer-text">
                   <p class="number number--modal number--bamboo">101</p>
                   <p class="paragraph">left</p>
                 </div>
               </div>
             </div>
             <div class="pledge__form-container">
-              <form action="/" class="pledge__modal-form" data-group="bamboo">
-                <p class="paragraph paragraph--modal-form">Enter your pledge</p>
-                <div class="container--modal-form-inputs">
-                  <label class="container--number">
-                    <span class="number number--label">$</span>
-                    <input
-                      class="number number--input"
-                      type="number"
-                      name="pledge"
-                      id="amount-bamboo"
-                      min="25"
-                      value="25"
-                      required
-                    />
-                  </label>
-                  <button
-                    type="submit"
-                    id="submit-bamboo"
-                    class="btn btn--modal-form btn--teal"
-                  >
-                    Continue
-                  </button>
-                </div>
+              <form action="/" class="pledge__form" data-group="bamboo">
+                <p class="paragraph paragraph--form">Enter your pledge</p>
+                <label for="amount-bamboo">
+                  <span>$</span>
+                  <input
+                    type="number"
+                    name="pledge-amount"
+                    id="amount-bamboo"
+                    min="25"
+                    value="25"
+                    required
+                  />
+                </label>
+                <button
+                  type="submit"
+                  id="submit-bamboo"
+                  class="btn btn--modal-form btn--teal"
+                >
+                  Continue
+                </button>
               </form>
             </div>
           </div>
@@ -382,31 +379,34 @@
                   </p>
                 </div>
               </label>
-              <div class="pledge__description pledge__description--modal">
+              <div class="pledge__description">
                 <p class="paragraph paragraph--modal">
                   You get a Black Special Edition computer stand and a personal
                   thank you. You’ll be added to our Backer member list. Shipping
                   is included.
                 </p>
               </div>
-              <div class="pledge__footer pledge__footer--modal">
-                <div class="container--pledge-footer-text">
+              <div class="pledge__footer">
+                <div class="pledge__footer-text">
                   <p class="number number--modal number--black">64</p>
                   <p class="paragraph">left</p>
                 </div>
               </div>
             </div>
             <div class="pledge__form-container">
-              <form action="/" class="pledge__modal-form" data-group="black">
-                <p class="paragraph paragraph--modal-form">Enter your pledge</p>
-                <input
-                  type="number"
-                  name="pledge-amount"
-                  id="amount-black"
-                  min="75"
-                  value="75"
-                  required
-                />
+              <form action="/" class="pledge__form" data-group="black">
+                <p class="paragraph paragraph--form">Enter your pledge</p>
+                <label for="amount-black">
+                  <span>$</span>
+                  <input
+                    type="number"
+                    name="pledge-amount"
+                    id="amount-black"
+                    min="75"
+                    value="75"
+                    required
+                  />
+                </label>
                 <button
                   type="submit"
                   id="submit-black"
@@ -441,31 +441,34 @@
                   </p>
                 </div>
               </label>
-              <div class="pledge__description pledge__description--modal">
+              <div class="pledge__description">
                 <p class="paragraph paragraph--modal">
                   You get two Special Edition Mahogany stands, a Backer T-Shirt,
                   and a personal thank you. You’ll be added to our Backer member
                   list. Shipping is included.
                 </p>
               </div>
-              <div class="pledge__footer pledge__footer--modal">
-                <div class="container--pledge-footer-text">
+              <div class="pledge__footer">
+                <div class="pledge__footer-text">
                   <p class="number number--modal number--mahogany">0</p>
                   <p class="paragraph">left</p>
                 </div>
               </div>
             </div>
             <div class="pledge__form-container">
-              <form action="/" class="pledge__modal-form" data-group="mahogany">
-                <p class="paragraph paragraph--modal-form">Enter your pledge</p>
-                <input
-                  type="number"
-                  name="pledge-mahogany"
-                  id="amount-mahogany"
-                  min="200"
-                  value="200"
-                  required
-                />
+              <form action="/" class="pledge__form" data-group="mahogany">
+                <p class="paragraph paragraph--form">Enter your pledge</p>
+                <label for="amount-mahogany">
+                  <span>$</span>
+                  <input
+                    type="number"
+                    name="pledge-mahogany"
+                    id="amount-mahogany"
+                    min="200"
+                    value="200"
+                    required
+                  />
+                </label>
                 <button
                   type="submit"
                   id="submit-mahogany"

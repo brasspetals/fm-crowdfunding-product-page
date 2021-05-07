@@ -76,7 +76,7 @@ const amountGoal = 100000;
 let totalBacked = 89914;
 let totalBackers = 5007;
 const radioInputs = document.querySelectorAll(".radio__input");
-const pledgeForms = document.querySelectorAll(".pledge__modal-form");
+const pledgeForms = document.querySelectorAll(".pledge__form");
 const modalContainer = document.querySelector(".modal-container");
 
 ///////////////////////////////

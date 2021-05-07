@@ -104,7 +104,7 @@
     }
   }
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 525px) {
     border-radius: 40px;
     background-color: $color-slider-bg;
     color: $color-gray;
@@ -130,11 +130,9 @@
   &__text {
     display: none;
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 525px) {
       display: inline;
       font-size: 15px;
-      // padding: 0px 26px 0 16px;
-
       transition: all 0.5s ease;
       position: relative;
       z-index: 0;
@@ -157,7 +155,7 @@
       fill: $color-white;
     }
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 525px) {
       background-color: $color-bookmark-active;
 
       .bookmark__icon {
@@ -204,7 +202,7 @@
     display: grid;
     grid-gap: 4px;
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 525px) {
       grid-auto-flow: column;
       justify-content: space-between;
     }
@@ -215,7 +213,7 @@
     justify-content: start;
     grid-gap: 24px;
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: 525px) {
       grid-auto-flow: column;
       justify-content: space-between;
     }

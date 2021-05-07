@@ -84,7 +84,7 @@ const modalContainer = document.querySelector(".modal-container");
 
 function openModal() {
   // open selection modal, apply overlay
-  modalSelection.classList.remove("modal--hidden");
+  modalSelection.classList.remove("hidden");
   modalSelection.classList.add("fadeIn");
   overlay.classList.remove("overlay--hidden");
   overlay.classList.add("overlay--modal");
@@ -95,8 +95,8 @@ function openModal() {
 
 function closeModal() {
   // close selection modal, remove overlay
-  modalSelection.classList.add("modal--hidden");
-  modalSuccess.classList.add("modal--hidden");
+  modalSelection.classList.add("hidden");
+  modalSuccess.classList.add("hidden");
   overlay.classList.add("overlay--hidden");
   overlay.classList.remove("overlay--modal");
   document.body.classList.remove("modal-open");
@@ -236,8 +236,8 @@ function successModal() {
   selectionModalReset();
 
   // hide selection modal and show thank you modal
-  modalSelection.classList.add("modal--hidden");
-  modalSuccess.classList.remove("modal--hidden");
+  modalSelection.classList.add("hidden");
+  modalSuccess.classList.remove("hidden");
   modalSuccess.classList.add("fadeIn");
   modalSuccess.focus();
 }

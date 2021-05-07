@@ -6,10 +6,6 @@
   height: 100%;
   overflow-y: auto;
   z-index: 100;
-
-  &--hidden {
-    display: none;
-  }
 }
 
 .modal {
@@ -38,10 +34,6 @@
   &__pledge-selection {
     display: grid;
     grid-gap: 22px;
-  }
-
-  &--hidden {
-    display: none;
   }
 
   /////////////////

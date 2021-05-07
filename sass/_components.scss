@@ -52,11 +52,12 @@
 
   &--primary {
     font-size: 15px;
-    padding: 18px 45px;
-    // padding: 18.5px 40px;
+    padding: 18px 20px;
+    max-width: 214px;
 
     @media only screen and (min-width: 600px) {
-      padding: 18.5px 39px;
+      padding: 18.5px 20px;
+      max-width: 202px;
     }
   }
 

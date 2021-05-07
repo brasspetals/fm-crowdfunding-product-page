@@ -195,10 +195,11 @@
 
   &__btns {
     display: grid;
-    justify-content: space-between;
     align-items: center;
     grid-auto-flow: column;
     width: 100%;
+    grid-template-columns: 1fr auto;
+    grid-gap: 4px;
   }
 }
 

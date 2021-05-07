@@ -45,7 +45,8 @@
   &--teal {
     background-color: $color-teal;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $color-teal-dark;
     }
   }
@@ -98,7 +99,12 @@
 
 // Bookmark
 .bookmark {
-  &:hover {
+  &:hover,
+  &:focus {
+    & * circle {
+      fill: $color-gray;
+    }
+
     & * path {
       fill: $color-white;
     }
@@ -151,8 +157,16 @@
     & * circle {
       fill: $color-teal-dark;
     }
+
     & * path {
       fill: $color-white;
+    }
+
+    &:hover,
+    &:focus {
+      & * circle {
+        fill: $color-teal;
+      }
     }
 
     @media only screen and (min-width: 525px) {

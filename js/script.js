@@ -12,8 +12,8 @@ function overlayClose() {
   }
 }
 
-///////////////////
-// Event Listener
+//////////////////////////
+// Overlay Event Listener
 overlay.addEventListener("click", overlayClose);
 
 //////////////////
@@ -39,8 +39,8 @@ function toggleMenu() {
   }
 }
 
-///////////////////
-// Event Listener
+////////////////////////
+// Menu Event Listener
 btnMenu.addEventListener("click", toggleMenu);
 
 //////////////////////
@@ -59,8 +59,8 @@ function bookmarkProject() {
   }
 }
 
-///////////////////
-// Event Listener
+///////////////////////////
+// Bookmark Event Listener
 bookmark.addEventListener("click", bookmarkProject);
 
 /////////////
@@ -79,9 +79,8 @@ const radioInputs = document.querySelectorAll(".radio__input");
 const pledgeForms = document.querySelectorAll(".pledge__form");
 const modalContainer = document.querySelector(".modal-container");
 
-///////////////////////////////
-// Selection Modal Open/Close
-
+///////////////
+// Open Modal
 function openModal() {
   // open selection modal, apply overlay
   modalSelection.classList.remove("hidden");
@@ -93,6 +92,34 @@ function openModal() {
   modalSelection.querySelector("h2").focus();
 }
 
+///////////////////////////////
+// Open Modal: Event Listeners
+btnPrimary.addEventListener("click", openModal);
+btnSelectReward.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // mark corresponding modal radio input as checked
+    document.getElementById(`reward-${btn.dataset.group}`).checked = true;
+    document
+      .getElementById(`reward-${btn.dataset.group}`)
+      .closest(".pledge")
+      .classList.add("pledge--selected");
+
+    openModal();
+
+    // scroll to selected pledge
+    const selected = document.getElementById(
+      `modalPledge--${btn.dataset.group}`
+    );
+
+    selected.scrollIntoView({
+      behavior: "auto",
+      block: "center",
+    });
+  });
+});
+
+////////////////
+// Close Modal
 function closeModal() {
   // close selection modal, remove overlay
   modalSelection.classList.add("hidden");
@@ -119,55 +146,8 @@ function selectionModalReset() {
   });
 }
 
-function updateCheckedStyles() {
-  // add styles to selected/checked modal pledge, remove styles if not selected/checked
-  radioInputs.forEach((input) => {
-    if (input.checked) {
-      input.focus();
-      input.closest(".pledge").classList.add("pledge--selected");
-    } else if (!input.checked) {
-      input.closest(".pledge").classList.remove("pledge--selected");
-    }
-  });
-}
-
-///////////////////////
-// Event Listeners
-
-//////////////
-// Open Modal
-
-btnPrimary.addEventListener("click", openModal);
-btnSelectReward.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    // mark corresponding modal radio input as checked
-    document.getElementById(`reward-${btn.dataset.group}`).checked = true;
-    document
-      .getElementById(`reward-${btn.dataset.group}`)
-      .closest(".pledge")
-      .classList.add("pledge--selected");
-
-    openModal();
-
-    // scroll to selected pledge
-    const selected = document.getElementById(
-      `modalPledge--${btn.dataset.group}`
-    );
-
-    selected.scrollIntoView({
-      behavior: "auto",
-      block: "center",
-    });
-  });
-});
-
-radioInputs.forEach((input) => {
-  input.addEventListener("change", updateCheckedStyles);
-});
-
-//////////////
-//Close Modal
-
+////////////////////////////////
+// Close Modal: Event Listeners
 btnCloseModal.addEventListener("click", closeModal);
 btnCloseSuccess.addEventListener("click", closeModal);
 
@@ -187,9 +167,26 @@ modalContainer.addEventListener("click", (e) => {
   }
 });
 
+///////////////////////////////////////////
+// Apply "Checked" Styles to Modal Pledges
+function updateCheckedStyles() {
+  // add styles to selected/checked modal pledge, remove styles if not selected/checked
+  radioInputs.forEach((input) => {
+    if (input.checked) {
+      input.focus();
+      input.closest(".pledge").classList.add("pledge--selected");
+    } else if (!input.checked) {
+      input.closest(".pledge").classList.remove("pledge--selected");
+    }
+  });
+}
+
+radioInputs.forEach((input) => {
+  input.addEventListener("change", updateCheckedStyles);
+});
+
 ////////////////////////
 // Submitting a Pledge
-
 function updateReward(form) {
   // get number left of reward selected
   let numRemaining = parseInt(
@@ -242,9 +239,8 @@ function successModal() {
   modalSuccess.focus();
 }
 
-///////////////////
-// Event Listener
-
+//////////////////////////////
+// Pledge Submit Event Listener
 pledgeForms.forEach((form) => {
   form.addEventListener("submit", (e) => {
     // prevents page refresh, which would reset variables

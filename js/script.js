@@ -173,7 +173,7 @@ btnCloseSuccess.addEventListener("click", closeModal);
 
 document.addEventListener("keydown", (event) => {
   // close modal by pressing "escape" key
-  if (event.key == "Escape") {
+  if (event.key == "Escape" && overlay.classList.contains("overlay--modal")) {
     closeModal();
   }
 });

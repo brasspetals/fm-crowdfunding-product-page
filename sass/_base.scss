@@ -63,3 +63,8 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+
+:focus {
+  outline-offset: 5px;
+  outline: 3px dotted $color-teal;
+}

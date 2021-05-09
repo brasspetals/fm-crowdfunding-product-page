@@ -262,7 +262,8 @@
     }
   }
 
-  &:focus-within {
+  &:focus-within,
+  &--selected {
     border: 2px solid $color-teal;
 
     & * .radio__control {
@@ -390,7 +391,7 @@
 
   &__input {
     opacity: 0;
-    height: 0;
+    // height: 0;
     width: 0;
     position: absolute;
 

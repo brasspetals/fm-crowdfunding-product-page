@@ -99,6 +99,7 @@ btnSelectReward.forEach((btn) => {
     // mark corresponding modal radio input as checked
     document.getElementById(`reward-${btn.dataset.group}`).checked = true;
     openModal();
+    updateCheckedStyles();
     document.getElementById(`reward-${btn.dataset.group}`).focus();
 
     // scroll to selected pledge
@@ -133,6 +134,12 @@ function selectionModalReset() {
   document.querySelectorAll(".pledge__modal-form").forEach((form) => {
     form.reset();
   });
+
+  // deselect/uncheck all radio inputs on close
+  radioInputs.forEach((input) => {
+    input.checked = "false";
+    input.closest(".pledge").classList.remove("pledge--selected");
+  });
 }
 
 ////////////////////////////////
@@ -154,6 +161,23 @@ modalContainer.addEventListener("click", (e) => {
   } else {
     closeModal();
   }
+});
+
+///////////////////////////////////////////
+// Apply "Checked" Styles to Modal Pledges
+function updateCheckedStyles() {
+  // add styles to selected/checked modal pledge, remove styles if not selected/checked
+  radioInputs.forEach((input) => {
+    if (input.checked) {
+      input.closest(".pledge").classList.add("pledge--selected");
+    } else if (!input.checked) {
+      input.closest(".pledge").classList.remove("pledge--selected");
+    }
+  });
+}
+
+radioInputs.forEach((input) => {
+  input.addEventListener("change", updateCheckedStyles);
 });
 
 ////////////////////////

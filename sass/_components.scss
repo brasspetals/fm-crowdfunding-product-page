@@ -48,6 +48,7 @@
     &:hover,
     &:focus {
       background-color: $color-teal-dark;
+      outline: none;
     }
   }
 
@@ -102,6 +103,8 @@
 .bookmark {
   &:hover,
   &:focus {
+    outline: none;
+
     & * circle {
       fill: $color-gray;
     }
@@ -259,7 +262,7 @@
     }
   }
 
-  &--selected {
+  &:focus-within {
     border: 2px solid $color-teal;
 
     & * .radio__control {
@@ -438,8 +441,9 @@
     align-items: center;
     justify-content: center;
     height: 48.5px;
+    transition: all 0.3s;
 
-    &:focus {
+    &:focus-within {
       border: 1px solid $color-teal;
     }
   }
@@ -451,5 +455,9 @@
     caret-color: $color-teal;
     // padding-left: 5px;
     text-align: center;
+
+    &:focus {
+      outline: none;
+    }
   }
 }

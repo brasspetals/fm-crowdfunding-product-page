@@ -436,10 +436,7 @@
     width: 50%;
     max-width: 105px;
     caret-color: $color-teal;
-    padding-left: 5px;
-
-    &:focus {
-      // outline: none;
-    }
+    // padding-left: 5px;
+    text-align: center;
   }
 }

@@ -68,3 +68,15 @@ button {
   outline-offset: 5px;
   outline: 2px dotted $color-teal;
 }
+
+// Remove arrows from number inputs
+// Chrome, Safari, Edge, Opera
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+// Firefox
+input[type="number"] {
+  -moz-appearance: textfield;
+}

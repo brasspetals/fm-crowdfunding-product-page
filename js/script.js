@@ -99,7 +99,7 @@ btnSelectReward.forEach((btn) => {
     // mark corresponding modal radio input as checked
     document.getElementById(`reward-${btn.dataset.group}`).checked = true;
     openModal();
-    updateCheckedStyles();
+    document.getElementById(`reward-${btn.dataset.group}`).focus();
 
     // scroll to selected pledge
     const selected = document.getElementById(

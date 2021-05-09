@@ -395,7 +395,7 @@
     position: absolute;
 
     &:focus {
-      & ~ .pledge__header-text > .heading--modal {
+      & ~ .pledge__header-text > .heading {
         color: $color-teal;
       }
 
@@ -418,7 +418,7 @@
     position: relative;
 
     &:hover {
-      & * .heading--modal {
+      & * .heading {
         color: $color-teal;
       }
 

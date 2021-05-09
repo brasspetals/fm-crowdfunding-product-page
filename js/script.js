@@ -230,7 +230,7 @@ function successModal() {
   // hide selection modal and show thank you modal
   modalSelection.classList.add("hidden");
   modalSuccess.classList.remove("hidden");
-  modalSuccess.classList.add("fadeIn");
+  modalSuccess.classList.add("fadeInSuccess");
   modalSuccess.focus();
 }
 

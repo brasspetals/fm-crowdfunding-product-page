@@ -61,6 +61,10 @@
   &--pledge-requirement {
     color: $color-teal;
     font-weight: 500;
+    @media only screen and (min-width: 700px) {
+      line-height: unset;
+      font-size: 17px;
+    }
   }
 
   &--requirement {

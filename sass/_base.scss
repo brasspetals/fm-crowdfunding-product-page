@@ -12,16 +12,31 @@ $color-bookmark-active: rgb(244, 248, 249);
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    // transform: translateY(-15px);
+    transform: translateY(60px);
   }
   100% {
     opacity: 1;
-    // transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInSuccess {
+  0% {
+    opacity: 0;
+    top: calc(50% + 30px);
+  }
+  100% {
+    opacity: 1;
+    top: 50%;
   }
 }
 
 .fadeIn {
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.5s ease backwards;
+}
+
+.fadeInSuccess {
+  animation: fadeInSuccess 0.5s ease backwards;
 }
 
 * {
@@ -65,7 +80,7 @@ button {
 }
 
 :focus {
-  outline-offset: 5px;
+  outline-offset: 4px;
   outline: 2px dotted $color-teal;
 }
 

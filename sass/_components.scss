@@ -74,10 +74,19 @@
   }
 
   &--pledge,
-  &--modal-form,
   &--success {
     font-size: 13px;
     padding: 16px 33px;
+  }
+
+  &--success {
+    margin-top: 8px;
+  }
+
+  &--modal-form {
+    font-size: 13px;
+    padding: 16px 28px;
+    // max-width: 105px;
   }
 
   &--close-modal {
@@ -86,14 +95,6 @@
       right: 30px;
       top: 30px;
     }
-  }
-
-  &--success {
-    margin-top: 8px;
-  }
-
-  &--modal-form {
-    padding: 16px 23px;
   }
 }
 
@@ -348,12 +349,21 @@
   }
 
   &__form {
-    padding: 24px 32px;
+    padding: 24px 23px;
     display: grid;
     text-align: center;
+    grid-gap: 18px;
 
     &-inputs {
       display: grid;
+      grid-gap: 0.5rem;
+      justify-content: center;
+      justify-items: center;
+
+      @media only screen and (min-width: 374px) {
+        grid-auto-flow: column;
+        grid-gap: 1rem;
+      }
     }
   }
 }
@@ -399,6 +409,37 @@
       & > .radio__control {
         border: 1px solid $color-teal;
       }
+    }
+  }
+}
+
+// Number inputs (Selection Modal Form)
+.amount {
+  &__label {
+    // padding: 16px 5px;
+    border: 1px solid $color-pledge-border;
+    border-radius: 40px;
+    max-width: 105px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 48.5px;
+
+    &:focus {
+      border: 1px solid $color-teal;
+    }
+  }
+
+  &__input {
+    border: none;
+    width: 50%;
+    max-width: 105px;
+    caret-color: $color-teal;
+    padding-left: 5px;
+
+    &:focus {
+      // outline: none;
     }
   }
 }

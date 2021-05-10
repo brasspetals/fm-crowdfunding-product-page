@@ -119,27 +119,13 @@ btnSelectReward.forEach((btn) => {
 function closeModal() {
   // close selection modal, remove overlay
   modalSelection.classList.add("hidden");
+  modalSelection.classList.remove("fadeIn");
   modalSuccess.classList.add("hidden");
+  modalSuccess.classList.remove("fadeInSuccess");
   overlay.classList.add("overlay--hidden");
   overlay.classList.remove("overlay--modal");
   document.body.classList.remove("modal-open");
   modalContainer.classList.add("hidden");
-
-  // reset selection modal forms and pledge selection
-  selectionModalReset();
-}
-
-function selectionModalReset() {
-  // reset modal forms on close
-  document.querySelectorAll(".pledge__modal-form").forEach((form) => {
-    form.reset();
-  });
-
-  // deselect/uncheck all radio inputs on close
-  radioInputs.forEach((input) => {
-    input.checked = "false";
-    input.closest(".pledge").classList.remove("pledge--selected");
-  });
 }
 
 ////////////////////////////////
@@ -224,9 +210,6 @@ function updateTotalBacked(form) {
 }
 
 function successModal() {
-  // reset selection modal forms and selected pledge
-  selectionModalReset();
-
   // hide selection modal and show thank you modal
   modalSelection.classList.add("hidden");
   modalSuccess.classList.remove("hidden");

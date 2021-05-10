@@ -48,7 +48,7 @@
     &:hover,
     &:focus {
       background-color: $color-teal-dark;
-      outline: none;
+      // outline: none;
     }
   }
 
@@ -87,7 +87,6 @@
   &--modal-form {
     font-size: 13px;
     padding: 16px 28px;
-    // max-width: 105px;
   }
 
   &--close-modal {
@@ -103,7 +102,7 @@
 .bookmark {
   &:hover,
   &:focus {
-    outline: none;
+    // outline: none;
 
     & * circle {
       fill: $color-gray;
@@ -271,9 +270,9 @@
     }
 
     & > .pledge__form-container {
-      display: block;
-      max-height: 100%;
-      transition: all 1s;
+      visibility: visible;
+      max-height: 10rem;
+      transition: all 0.7s ease;
     }
   }
 
@@ -352,11 +351,12 @@
   }
 
   &__form-container {
-    display: none;
+    visibility: hidden;
     border-top: 1px solid $color-pledge-border;
     width: 100%;
     max-height: 0;
-    transition: all 1s;
+    overflow: hidden;
+    transition: all 0.4s ease;
   }
 
   &__form {
@@ -454,7 +454,6 @@
     width: 50%;
     max-width: 105px;
     caret-color: $color-teal;
-    // padding-left: 5px;
     text-align: center;
 
     &:focus {

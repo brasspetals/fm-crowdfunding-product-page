@@ -78,17 +78,21 @@ let totalBackers = 5007;
 const radioInputs = document.querySelectorAll(".radio__input");
 const pledgeForms = document.querySelectorAll(".pledge__form");
 const modalContainer = document.querySelector(".modal-container");
+let focusedElementBeforeModal;
 
 ///////////////
 // Open Modal
 function openModal() {
+  // save last focused element for
+  focusedElementBeforeModal = document.activeElement;
+
   // open selection modal, apply overlay
   modalSelection.classList.remove("hidden");
   modalSelection.classList.add("fadeIn");
   overlay.classList.remove("overlay--hidden");
   overlay.classList.add("overlay--modal");
   document.body.classList.add("modal-open");
-  modalContainer.classList.remove("hidden");
+  modalContainer.classList.remove("hidden", "display-none");
 }
 
 ///////////////////////////////
@@ -125,7 +129,10 @@ function closeModal() {
   overlay.classList.add("overlay--hidden");
   overlay.classList.remove("overlay--modal");
   document.body.classList.remove("modal-open");
-  modalContainer.classList.add("hidden");
+  modalContainer.classList.add("hidden", "display-none");
+
+  // apply focus back to where it was before modal was opened
+  focusedElementBeforeModal.focus();
 }
 
 ////////////////////////////////

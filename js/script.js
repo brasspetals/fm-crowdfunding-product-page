@@ -97,9 +97,16 @@ function openModal() {
 
 ///////////////////////////////
 // Open Modal: Event Listeners
-btnPrimary.addEventListener("click", openModal);
+btnPrimary.addEventListener("click", (e) => {
+  // Safari fix to manually add focus to button on click - used for "focusedElementBeforeModal" functionality
+  e.target.focus();
+  openModal();
+});
+
 btnSelectReward.forEach((btn) => {
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", (e) => {
+    // Safari fix to manually add focus to button on click
+    e.target.focus();
     // mark corresponding modal radio input as checked
     document.getElementById(`reward-${btn.dataset.group}`).checked = true;
     openModal();

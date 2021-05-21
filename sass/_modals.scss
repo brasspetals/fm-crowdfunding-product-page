@@ -21,6 +21,13 @@
   position: relative;
   z-index: 100;
 
+  // &--selection {
+  //   transform: translateY(60px);
+  //   opacity: 0;
+  //   visibility: hidden;
+  //   transition: all 0.6s ease;
+  // }
+
   @media only screen and (min-width: 700px) {
     padding: 48px 48px;
   }
@@ -65,8 +72,241 @@
 .hidden {
   visibility: hidden;
   opacity: 0;
+  // transition: all 0.6s ease;
 }
 
 .display-none {
   display: none;
+}
+
+// .fadeInOut {
+//   opacity: 1;
+//   visibility: visible;
+//   transform: translateY(0);
+//   transition: all 0.6s ease;
+// }
+
+// Pledges (Selection Modal)
+.pledge {
+  background-color: $color-white;
+  border-radius: 8px;
+  border: 1px solid $color-pledge-border;
+  width: 100%;
+
+  &--unavailable {
+    filter: opacity(0.45);
+
+    & .heading--modal:hover {
+      cursor: default;
+      color: $color-black;
+    }
+  }
+
+  &:focus-within,
+  &--selected {
+    border: 2px solid $color-teal;
+
+    & * .radio__control {
+      background: radial-gradient($color-teal 40%, transparent 41%);
+    }
+
+    & > .pledge__form-container {
+      visibility: visible;
+      max-height: 13rem;
+      transition: max-height 0.7s ease;
+
+      @media only screen and (min-width: 375px) {
+        max-height: 9.5rem;
+      }
+
+      @media only screen and (min-width: 600px) {
+        max-height: 7rem;
+      }
+    }
+  }
+
+  &__main-container {
+    width: 100%;
+    padding: 24px;
+    display: grid;
+    grid-gap: 22px;
+
+    &--noreward {
+      padding: 32px 24px;
+      grid-gap: 35px;
+    }
+
+    @media only screen and (min-width: 700px) {
+      padding: 36px 30px 30px;
+      grid-template-areas:
+        "header number"
+        "desc desc";
+      grid-template-columns: 1fr auto;
+    }
+  }
+
+  &__header {
+    display: grid;
+    justify-content: start;
+    grid-auto-flow: column;
+    grid-gap: 16px;
+    align-items: center;
+
+    @media only screen and (min-width: 700px) {
+      grid-area: header;
+    }
+
+    &-text {
+      display: grid;
+      grid-gap: 4px;
+
+      @media only screen and (min-width: 700px) {
+        grid-auto-flow: column;
+        grid-gap: 24px;
+        align-items: center;
+      }
+    }
+  }
+
+  &__description {
+    @media only screen and (min-width: 700px) {
+      grid-area: desc;
+      margin-left: 40px;
+    }
+  }
+
+  &__footer {
+    display: grid;
+    justify-content: start;
+    grid-gap: 24px;
+
+    @media only screen and (min-width: 600px) {
+      grid-auto-flow: column;
+      justify-content: space-between;
+    }
+
+    @media only screen and (min-width: 700px) {
+      grid-area: number;
+      justify-self: end;
+    }
+
+    &-text {
+      display: grid;
+      grid-auto-flow: column;
+      align-items: center;
+      justify-content: start;
+      grid-gap: 9px;
+    }
+  }
+
+  &__form-container {
+    visibility: hidden;
+    border-top: 1px solid $color-pledge-border;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+
+  &__form {
+    padding: 24px 23px;
+    display: grid;
+    text-align: center;
+    grid-gap: 18px;
+
+    @media only screen and (min-width: 600px) {
+      grid-auto-flow: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-inputs {
+      display: grid;
+      grid-gap: 1rem;
+      justify-content: center;
+      justify-items: center;
+
+      @media only screen and (min-width: 374px) {
+        grid-auto-flow: column;
+        grid-gap: 1rem;
+      }
+    }
+  }
+}
+
+// Radio Buttons (Modal Pledges)
+.radio {
+  display: flex;
+
+  &__input {
+    opacity: 0;
+    // height: 0;
+    width: 0;
+    position: absolute;
+
+    &:focus {
+      & ~ .pledge__header-text > .heading {
+        color: $color-teal;
+      }
+
+      & + .radio__control {
+        border: 1px solid $color-teal;
+      }
+    }
+  }
+
+  &__control {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid $color-pledge-border;
+    transition: all 0.3s;
+  }
+
+  &__label {
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      & * .heading {
+        color: $color-teal;
+      }
+
+      & > .radio__control {
+        border: 1px solid $color-teal;
+      }
+    }
+  }
+}
+
+// Number inputs (Selection Modal Form)
+.amount {
+  &__label {
+    // padding: 16px 5px;
+    border: 1px solid $color-pledge-border;
+    border-radius: 40px;
+    max-width: 105px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 48.5px;
+    transition: all 0.3s;
+
+    &:focus-within {
+      border: 1px solid $color-teal;
+    }
+  }
+
+  &__input {
+    border: none;
+    width: 50%;
+    max-width: 105px;
+    caret-color: $color-teal;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+    }
+  }
 }

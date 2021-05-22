@@ -296,14 +296,25 @@
     &:focus-within {
       border: 1px solid $color-teal;
     }
+
+    & span {
+      font-weight: 700;
+      font-size: 14px;
+      // color: $color-pledge-border;
+      opacity: 0.5;
+    }
   }
 
   &__input {
+    font-family: inherit;
+    font-weight: 700;
     border: none;
     width: 50%;
     max-width: 105px;
     caret-color: $color-teal;
-    text-align: center;
+    text-align: left;
+    font-size: 14px;
+    padding-left: 12px;
 
     &:focus {
       outline: none;

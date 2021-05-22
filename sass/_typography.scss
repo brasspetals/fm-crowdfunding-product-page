@@ -30,12 +30,19 @@
     }
   }
 
-  // Pledge Titles
   &--tertiary {
     font-size: 14px;
 
     @media only screen and (min-width: 700px) {
       font-size: 18px;
+    }
+  }
+
+  &--pledge {
+    font-size: 14px;
+
+    @media only screen and (min-width: 700px) {
+      font-size: 16px;
     }
   }
 }
@@ -48,12 +55,12 @@
     font-size: 15px;
 
     &--primary,
-    &--about,
-    &--modal {
+    &--about {
       font-size: 16px;
     }
 
-    &--about {
+    &--about,
+    &--modal {
       line-height: 1.85;
     }
   }
@@ -63,7 +70,7 @@
     font-weight: 500;
     @media only screen and (min-width: 700px) {
       line-height: unset;
-      font-size: 17px;
+      font-size: 16px;
     }
   }
 

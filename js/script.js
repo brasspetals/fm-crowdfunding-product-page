@@ -104,7 +104,9 @@ function openModal() {
   modalSelection.classList.remove("hidden");
   // apply modal "fade in" transition
   modalSelection.classList.add("fadeIn");
+  modalSelection.focus();
 }
+
 ///////////////////////////////
 // Open Modal: Event Listeners
 btnPrimary.addEventListener("click", (e) => {
@@ -112,8 +114,6 @@ btnPrimary.addEventListener("click", (e) => {
   e.target.focus();
   openModal();
   document.activeElement.blur();
-  btnCloseModal.focus();
-  console.log(document.activeElement);
 });
 
 btnSelectReward.forEach((btn) => {
@@ -243,7 +243,7 @@ function successModal() {
   modalSelection.classList.add("hidden");
   modalSuccess.classList.remove("hidden");
   modalSuccess.classList.add("fadeInSuccess");
-  modalSuccess.focus();
+  // modalSuccess.focus();
 }
 
 //////////////////////////////

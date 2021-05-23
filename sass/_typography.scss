@@ -5,58 +5,58 @@
   transition: color 0.3s;
 
   &--primary {
-    font-size: 20px;
-    padding: 0 16px;
+    font-size: 1.25rem;
+    padding: 0 1rem;
 
     @media only screen and (min-width: 700px) {
-      font-size: 28px;
+      font-size: 1.75rem;
     }
   }
 
   &--secondary,
   &--modal {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   &--secondary {
     @media only screen and (min-width: 700px) {
-      font-size: 20px;
+      font-size: 1.25rem;
     }
   }
 
   &--modal {
     @media only screen and (min-width: 700px) {
-      font-size: 24px;
+      font-size: 1.5rem;
     }
   }
 
   &--tertiary {
-    font-size: 14px;
+    font-size: 0.875rem;
 
     @media only screen and (min-width: 700px) {
-      font-size: 18px;
+      font-size: 1.125rem;
     }
   }
 
   &--pledge {
-    font-size: 14px;
+    font-size: 0.875rem;
 
     @media only screen and (min-width: 700px) {
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
 }
 
 .paragraph {
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.7;
 
   @media only screen and (min-width: 700px) {
-    font-size: 15px;
+    font-size: 0.9375rem;
 
     &--primary,
     &--about {
-      font-size: 16px;
+      font-size: 1rem;
     }
 
     &--about,
@@ -70,7 +70,7 @@
     font-weight: 500;
     @media only screen and (min-width: 700px) {
       line-height: unset;
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
 
@@ -82,9 +82,9 @@
 .number {
   color: $color-black;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 2rem;
 
   &--modal {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 }

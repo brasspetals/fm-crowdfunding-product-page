@@ -90,6 +90,7 @@ const btnCloseSuccess = document.querySelector(".btn--success");
 function openModal(triggerbtn) {
   // save last focused element
   focusedElementBeforeModal = triggerbtn;
+  focusedElementBeforeModal.setAttribute("aria-expanded", "true");
 
   // apply overlay
   overlay.classList.remove("overlay--hidden");
@@ -217,6 +218,7 @@ function closeModal() {
   // apply focus back to where it was before modal was opened
   document.activeElement.blur();
   focusedElementBeforeModal.focus();
+  focusedElementBeforeModal.setAttribute("aria-expanded", "false");
 
   setTimeout(function () {
     modalContainer.classList.add("display-none");

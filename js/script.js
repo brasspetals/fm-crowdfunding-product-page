@@ -98,6 +98,7 @@ function openModal() {
   // apply overlay
   overlay.classList.remove("overlay--hidden");
   overlay.classList.add("overlay--modal");
+
   // open modal
   document.body.classList.add("modal-open");
   modalContainer.classList.remove("hidden");
@@ -105,6 +106,43 @@ function openModal() {
   // apply modal "fade in" transition
   modalSelection.classList.add("fadeIn");
   modalSelection.focus();
+
+  //apply focus trap
+  modalSelection.addEventListener("keydown", tabTrapKey);
+
+  const focusableElementsString =
+    "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
+
+  let focusableElements = modalSelection.querySelectorAll(
+    focusableElementsString
+  );
+  // convert Nodelist to array
+  focusableElements = Array.prototype.slice.call(focusableElements);
+
+  const firstTabStop = focusableElements[0];
+  const lastTabStop = focusableElements[focusableElements.length - 1];
+  console.log(firstTabStop, lastTabStop);
+  firstTabStop.focus();
+
+  function tabTrapKey(event) {
+    console.log(event.key);
+    // check if tab is pressed
+    if (event.key === "Tab") {
+      // shift tab
+      if (event.shiftKey) {
+        if (document.activeElement === firstTabStop) {
+          event.preventDefault();
+          lastTabStop.focus();
+        }
+        // tab
+      } else {
+        if (document.activeElement === lastTabStop) {
+          event.preventDefault();
+          firstTabStop.focus();
+        }
+      }
+    }
+  }
 }
 
 ///////////////////////////////

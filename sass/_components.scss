@@ -70,7 +70,7 @@
 
     &:disabled {
       background-color: $color-gray;
-      cursor: unset;
+      cursor: default;
     }
   }
 
@@ -211,6 +211,7 @@
 
   &--unavailable {
     filter: opacity(0.45);
+    cursor: default;
   }
 
   &__header {

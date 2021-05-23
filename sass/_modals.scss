@@ -66,9 +66,9 @@
 
   &--unavailable {
     filter: opacity(0.45);
+    cursor: default;
 
     & .heading--modal:hover {
-      cursor: default;
       color: $color-black;
     }
   }

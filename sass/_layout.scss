@@ -46,28 +46,28 @@
   grid-auto-flow: column;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 24px;
+  padding: 2rem 1.5rem;
   z-index: 10;
 
   @media only screen and (min-width: 500px) {
     left: 50%;
     transform: translateX(-50%);
-    max-width: 1172px;
-    padding: 48px 32px;
+    max-width: 73.25rem;
+    padding: 3rem 2rem;
   }
 }
 
 .navigation {
   &__list {
     position: absolute;
-    top: 88px;
+    top: 5.5rem;
     background-color: $color-white;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     color: $color-black;
     font-weight: 500;
-    left: 24px;
-    right: 24px;
-    font-size: 18px;
+    left: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.125rem;
     overflow: hidden;
     transition: all 0.35s ease-out;
 
@@ -79,16 +79,16 @@
       background-color: unset;
       border-radius: unset;
       color: $color-white;
-      font-size: 13px;
+      font-size: 0.8125rem;
       display: grid;
       grid-auto-flow: column;
       align-items: center;
-      grid-gap: 34px;
+      grid-gap: 2.125rem;
       overflow: visible;
     }
 
     &-item {
-      padding: 24px 24px 23px;
+      padding: 1.5rem 1.5rem 1.4375rem;
       transition: all 0.3s;
 
       @media only screen and (min-width: 500px) {
@@ -107,7 +107,7 @@
       }
 
       &:not(:last-of-type) {
-        border-bottom: 1px solid $color-section-border;
+        border-bottom: 0.0625rem solid $color-section-border;
 
         @media only screen and (min-width: 500px) {
           border-bottom: unset;
@@ -140,28 +140,28 @@
 ////////////
 
 .main {
-  padding: 0 24px 80px;
-  margin-top: -60px;
+  padding: 0 1.5rem 5rem;
+  margin-top: -3.75rem;
   position: relative;
   display: grid;
   justify-content: center;
-  grid-gap: 24px;
+  grid-gap: 1.5rem;
 
   @media only screen and (min-width: 1400px) {
-    margin-top: -96px;
+    margin-top: -6rem;
   }
 }
 
 .section {
   background-color: $color-white;
-  border-radius: 8px;
-  border: 1px solid $color-section-border;
-  padding: 32px 23px 39px;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid $color-section-border;
+  padding: 2rem 1.4375rem 2.4375rem;
   width: 100%;
-  max-width: 730px;
+  max-width: 45.625rem;
 
   @media only screen and (min-width: 700px) {
-    padding: 48px 48px;
+    padding: 3rem;
   }
 }
 
@@ -170,26 +170,26 @@
   display: grid;
   justify-items: center;
   text-align: center;
-  grid-gap: 24px;
+  grid-gap: 1.5rem;
   position: relative;
 
   @media only screen and (min-width: 700px) {
-    grid-gap: 35px;
+    grid-gap: 2.1875rem;
   }
 
   &__logo {
     position: absolute;
-    top: -28px;
+    top: -1.75rem;
   }
 
   &__text {
     display: grid;
-    grid-gap: 16px;
-    padding-top: 20px;
+    grid-gap: 1rem;
+    padding-top: 1.25rem;
 
     @media only screen and (min-width: 700px) {
-      grid-gap: 12px;
-      padding-top: 8px;
+      grid-gap: 0.75rem;
+      padding-top: 0.5rem;
     }
   }
 
@@ -199,7 +199,7 @@
     grid-auto-flow: column;
     width: 100%;
     grid-template-columns: 1fr auto;
-    grid-gap: 4px;
+    grid-gap: 0.25rem;
   }
 }
 
@@ -207,40 +207,40 @@
 .statistics {
   text-align: center;
   display: grid;
-  grid-gap: 28px;
+  grid-gap: 1.75rem;
 
   @media only screen and (min-width: 600px) {
     text-align: left;
-    grid-gap: 32px;
+    grid-gap: 2rem;
   }
 
   &-groups-wrapper {
     display: grid;
     justify-content: center;
     align-items: start;
-    grid-gap: 46px;
+    grid-gap: 2.875rem;
 
     @media only screen and (min-width: 600px) {
       justify-content: start;
       grid-auto-flow: column;
-      grid-gap: 42px;
+      grid-gap: 2.625rem;
     }
   }
 
   &__group {
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 0.3125rem;
     position: relative;
 
     @media only screen and (min-width: 600px) {
-      grid-gap: 3px;
+      grid-gap: 0.1875rem;
 
       &:not(:first-of-type) {
-        padding-left: 48px;
+        padding-left: 3rem;
       }
 
       &--central {
-        padding-right: 50px;
+        padding-right: 3.125rem;
       }
     }
 
@@ -248,8 +248,8 @@
     &:not(:first-of-type)::before {
       content: "";
       position: absolute;
-      height: 1px;
-      top: -26px;
+      height: 0.0625rem;
+      top: -1.625rem;
       background-color: rgba($color-gray, 0.5);
       width: 63%;
       left: 50%;
@@ -257,7 +257,7 @@
 
       @media only screen and (min-width: 600px) {
         height: 88%;
-        width: 1px;
+        width: 0.0625rem;
         top: 0;
         left: unset;
         transform: unset;
@@ -268,13 +268,13 @@
   &__slider {
     width: 100%;
     background-color: $color-slider-bg;
-    border-radius: 16px;
-    height: 12px;
+    border-radius: 1rem;
+    height: 0.75rem;
 
     &-inner {
       width: 79%;
       background-color: $color-teal;
-      border-radius: 16px;
+      border-radius: 1rem;
       height: 100%;
       max-width: 100%;
     }
@@ -284,25 +284,25 @@
 // About Project & Pledge Info
 .about {
   display: grid;
-  grid-gap: 34px;
+  grid-gap: 2.125rem;
 
   @media only screen and (min-width: 700px) {
-    grid-gap: 40px;
+    grid-gap: 2.5rem;
   }
 
   &__text {
-    padding-top: 7px;
+    padding-top: 0.4375rem;
     display: grid;
-    grid-gap: 26px;
+    grid-gap: 1.625rem;
 
     @media only screen and (min-width: 700px) {
       padding-top: 0;
-      grid-gap: 34px;
+      grid-gap: 2.125rem;
     }
   }
 
   &__rewards {
     display: grid;
-    grid-gap: 24px;
+    grid-gap: 1.5rem;
   }
 }

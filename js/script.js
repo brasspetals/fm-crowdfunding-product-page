@@ -97,6 +97,7 @@ function openModal(triggerbtn) {
 
   // reveal modal
   document.body.classList.add("modal-open");
+  modalContainer.classList.remove("display-none");
   modalContainer.classList.remove("hidden");
   modalSelection.classList.remove("hidden");
   modalSelection.classList.remove("fadeOut");
@@ -207,6 +208,10 @@ function closeModal() {
   // apply focus back to where it was before modal was opened
   document.activeElement.blur();
   focusedElementBeforeModal.focus();
+
+  setTimeout(function () {
+    modalContainer.classList.add("display-none");
+  }, 700);
 }
 
 // close modals by pressing close buttons

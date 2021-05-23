@@ -1,7 +1,7 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(60px);
+    transform: translateY(3.75rem);
   }
   100% {
     opacity: 1;
@@ -16,14 +16,14 @@
   }
   100% {
     opacity: 0;
-    transform: translateY(60px);
+    transform: translateY(3.75rem);
   }
 }
 
 @keyframes fadeInSuccess {
   0% {
     opacity: 0;
-    top: calc(50% + 30px);
+    top: calc(50% + 1.875rem);
   }
   100% {
     opacity: 1;
@@ -38,7 +38,7 @@
   }
   100% {
     opacity: 0;
-    top: calc(50% + 30px);
+    top: calc(50% + 1.875rem);
   }
 }
 

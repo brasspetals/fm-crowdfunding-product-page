@@ -122,7 +122,6 @@ function openModal(triggerbtn) {
   const lastTabStop = focusableElements[focusableElements.length - 1];
 
   function tabTrapKey(event) {
-    console.log(event.key);
     // check if tab is pressed
     if (event.key === "Tab") {
       // shift tab
@@ -164,23 +163,23 @@ function openModal(triggerbtn) {
       block: "center",
     });
   }
+}
 
-  // apply "checked" styles to modal pledges
-  function updateCheckedStyles() {
-    // add styles to selected/checked modal pledge, remove styles if not selected/checked
-    radioInputs.forEach((input) => {
-      if (input.checked) {
-        input.closest(".pledge").classList.add("pledge--selected");
-      } else if (!input.checked) {
-        input.closest(".pledge").classList.remove("pledge--selected");
-      }
-    });
-  }
-
+// apply "checked" styles to modal pledges
+function updateCheckedStyles() {
+  // add styles to selected/checked modal pledge, remove styles if not selected/checked
   radioInputs.forEach((input) => {
-    input.addEventListener("change", updateCheckedStyles);
+    if (input.checked) {
+      input.closest(".pledge").classList.add("pledge--selected");
+    } else if (!input.checked) {
+      input.closest(".pledge").classList.remove("pledge--selected");
+    }
   });
 }
+
+radioInputs.forEach((input) => {
+  input.addEventListener("change", updateCheckedStyles);
+});
 
 modalTrigger.forEach((btn) => {
   btn.addEventListener("click", (e) => {
@@ -204,6 +203,16 @@ function closeModal() {
   overlay.classList.remove("overlay--modal");
   document.body.classList.remove("modal-open");
   modalContainer.classList.add("hidden");
+
+  // reset forms
+  document.querySelectorAll(".pledge__form").forEach((form) => {
+    form.reset();
+  });
+  // uncheck radio buttons and remove styling
+  radioInputs.forEach((input) => {
+    input.checked = false;
+  });
+  updateCheckedStyles();
 
   // apply focus back to where it was before modal was opened
   document.activeElement.blur();

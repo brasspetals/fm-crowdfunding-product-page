@@ -228,8 +228,14 @@
       </section>
     </main>
     <!-- Selection modal start -->
-    <div class="modal-container hidden">
-      <div tabindex="-1" class="modal modal--selection">
+    <div class="modal-container hidden display-none">
+      <div
+        tabindex="-1"
+        class="modal modal--selection"
+        role="dialog"
+        aria-label="back this project"
+        aria-modal="true"
+      >
         <div class="modal__header">
           <h2 class="heading heading--modal">Back this project</h2>
           <button class="btn btn--close-modal" aria-label="close modal">
@@ -481,7 +487,13 @@
         </div>
       </div>
       <!-- Success modal start -->
-      <div tabindex="-1" class="modal modal--success hidden section">
+      <div
+        tabindex="-1"
+        class="modal modal--success hidden section"
+        role="dialog"
+        aria-label="pledge submission confirmation"
+        aria-modal="true"
+      >
         <img src="./images/icon-check.svg" alt="" />
         <h2 class="heading heading--secondary heading--modal">
           Thanks for your support!

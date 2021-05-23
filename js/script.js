@@ -88,7 +88,6 @@ const btnCloseSuccess = document.querySelector(".btn--success");
 ////////////////////////
 // Open Selection Modal
 function openModal(triggerbtn) {
-  console.log(triggerbtn);
   // save last focused element
   focusedElementBeforeModal = triggerbtn;
 
@@ -104,10 +103,9 @@ function openModal(triggerbtn) {
 
   // apply modal "fade in" transition
   modalSelection.classList.add("fadeIn");
-
-  //////////////
-  // Focus Trap
   modalSelection.focus();
+
+  // focus trap
   modalSelection.addEventListener("keydown", tabTrapKey);
 
   const focusableElementsString =
@@ -116,7 +114,7 @@ function openModal(triggerbtn) {
   let focusableElements = modalSelection.querySelectorAll(
     focusableElementsString
   );
-  // convert Nodelist to array
+
   focusableElements = Array.prototype.slice.call(focusableElements);
 
   const firstTabStop = focusableElements[0];
@@ -183,8 +181,6 @@ function openModal(triggerbtn) {
   });
 }
 
-///////////////////////////////
-// Open Modal: Event Listeners
 modalTrigger.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     // Safari fix to manually add focus to button on click - used for "focusedElementBeforeModal" functionality
@@ -234,7 +230,6 @@ modalContainer.addEventListener("click", (e) => {
 
 ////////////////////////
 // Submitting a Pledge
-
 pledgeForms.forEach((form) => {
   form.addEventListener("submit", (e) => {
     // prevents page refresh, which would reset variables
@@ -307,5 +302,4 @@ function successModal() {
   modalSuccess.classList.remove("hidden");
   modalSuccess.classList.remove("fadeOutSuccess");
   modalSuccess.classList.add("fadeInSuccess");
-  // modalSuccess.focus();
 }

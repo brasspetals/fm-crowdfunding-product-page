@@ -1,22 +1,12 @@
-# Frontend Mentor - Crowdfunding product page
+# Frontend Mentor - Crowdfunding Product Page
 
-![Design preview for the Crowdfunding product page coding challenge](./design/desktop-preview.jpg)
+![Design preview for the Crowdfunding product page coding challenge](./images/desktop-preview.jpg)
 
-## Welcome! 👋
+## Overview
 
-Thanks for checking out this front-end coding challenge.
+### The Challenge
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges allow you to improve your skills in a real-life workflow.
-
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
-
-## The challenge
-
-Your challenge is to build out this crowdfunding product page and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout depending on their device's screen size
 - See hover states for interactive elements
@@ -25,51 +15,58 @@ Your users should be able to:
 - See the number of total backers increment by one after confirming a pledge
 - Toggle whether or not the product is bookmarked
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Links
 
-## Where to find everything
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [https://fm-crowdfunding-product-page.vercel.app/](https://fm-crowdfunding-product-page.vercel.app/)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design to work to.
+## My process
 
-The designs are in JPG static format. This will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. This should help train your eye to perceive differences in spacings and sizes.
+### Built with
 
-If you would like the design files (we provide Sketch & Figma versions) in order to inspect the design in more detail you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+- Mobile-first workflow
+- SCSS
+- CSS Grid
+- Keyframes animations
+- Javascript
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+### Additions & Deviations
 
-There is also a `style-guide.md` file, which contains the information you'll need, such as color palette and fonts.
+Additions:
 
-## Building your project
+- Hover states for bookmark button
+- The "Select Reward" buttons on the main page will open the selection modal with the corresponding reward pre-selected and centered on the screen.
+- "Total left" of selected reward (if applicable) decrements by one on both the main page and selection modal after submitting a pledge
+- Modal animations
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+Deviations:
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). This will make it easier to share your code with the community if you need some help. If you're not sure how to do this, [have a read through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a URL. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, but we recommend using [Vercel](https://bit.ly/fem-vercel). We've got more information about deploying your project with Vercel below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes that you could create to make reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+- Darkened the hero gradient overlay on desktop to improve navigation visibility.
+- The desktop bookmark button interaction is a bit different than the design - it toggles, with the svg sliding to the opposite side. I wanted to experiment and have a bit of fun. Hopefully, I haven’t created an accessibility nightmare. 🙈
+- The slider may be “fuller” than the design as it’s accurate to the percentage backed.
 
-## Deploying your project
+### What I learned
 
-As mentioned above, there are a number of ways to host your project for free. We recommend using [Vercel](https://bit.ly/fem-vercel) as it's an amazing service and extremely simple to get set up with. If you'd like to use Vercel, here are some steps to follow to get started:
+This one was a _huge_ learning experience. What I thought would be a quick project featuring a nice, simple design turned into a bit more than I bargained for! 😅
 
-1. [Sign up to Vercel](https://bit.ly/fem-vercel-signup) and go through the onboarding flow, ensuring your GitHub account is connected by using their [Vercel for GitHub](https://vercel.com/docs/v2/git-integrations/vercel-for-github) integration.
-2. Connect your project to Vercel from the ["Import project" page](https://vercel.com/import), using the "From Git Repository" button and selecting the project you want to deploy.
-3. Once connected, every time you `git push`, Vercel will create a new [deployment](https://vercel.com/docs/v2/platform/deployments) and the deployment URL will be shown on your [Dashboard](https://vercel.com/dashboard). You will also receive an email for each deployment with the URL.
+Some new things I found really useful:
 
-## Sharing your solution
+- `toLocalString()` for converting numbers to strings _with appropriate commas_
+- `e.PreventDefault()` used to stop the page from refreshing on form submit (and resetting all the variables). In a "real world" scenario I wouldn't need this as I imagine I'd be working with a database. Still handy!
+- `scrollIntoView()` and `block: center` to have the modal pre-scrolled to the selected reward when opened
 
-There are multiple places you can share your solution:
+My learning experience wasn't limited to JS, however, as I got to utilitze some HTML and CSS features I hadn't used before:
 
-1. Submit it on the platform so that other users will see your solution on the site. Here's our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) to help you do that.
-2. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack).
-3. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor** including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
+- `picture` element to easily switch between hero images. I'd previously used `srcset`, but `picture` was perfect in this case
+- `filter` property for “unavailable” pledge styling
+- `:disabled` attribute selector for “unavailable” button styling
+- `transition-delay` property for desktop bookmark button "toggle" transition
+- `:focus-within` selector for number input label styling and in conjunction with "selected" pledge styling
+- [Custom data attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*) to make some JS element selection easier.
 
-## Giving feedback
+### Resources
 
-Feedback is always welcome, so if you have any to give on this challenge please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- [How to add an event listener to multiple elements in JavaScript](https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/)
+- [Pure CSS Custom Styled Radio Buttons](https://moderncss.dev/pure-css-custom-styled-radio-buttons/)
+- [Bootstrap's "Scrolling long content" modal demo](https://getbootstrap.com/docs/4.3/components/modal/#scrolling-long-content) - referenced for selection modal functionality
+- [Google's free Web Accessilibilty Course on Udacity](https://www.udacity.com/course/web-accessibility--ud891)

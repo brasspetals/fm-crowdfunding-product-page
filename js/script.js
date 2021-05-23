@@ -11,8 +11,6 @@ function overlayClose() {
   }
 }
 
-//////////////////////////
-// Overlay Event Listener
 // close mobile menu and modals when clicking on the overlay
 overlay.addEventListener("click", overlayClose);
 
@@ -39,8 +37,6 @@ function toggleMenu() {
   }
 }
 
-////////////////////////
-// Menu Event Listener
 btnMenu.addEventListener("click", toggleMenu);
 
 //////////////////////
@@ -59,13 +55,12 @@ function bookmarkProject() {
   }
 }
 
-///////////////////////////
-// Bookmark Event Listener
 bookmark.addEventListener("click", bookmarkProject);
 
 /////////////
 // Modals //
 ///////////
+
 // Variables
 const amountGoal = 100000;
 let totalBacked = 89914;
@@ -105,11 +100,13 @@ function openModal(triggerbtn) {
   document.body.classList.add("modal-open");
   modalContainer.classList.remove("hidden");
   modalSelection.classList.remove("hidden");
+  modalSelection.classList.remove("fadeOut");
 
   // apply modal "fade in" transition
   modalSelection.classList.add("fadeIn");
 
-  //apply focus trap
+  //////////////
+  // Focus Trap
   modalSelection.focus();
   modalSelection.addEventListener("keydown", tabTrapKey);
 
@@ -148,14 +145,15 @@ function openModal(triggerbtn) {
   if (triggerbtn === btnPrimary) {
     // blur focus style on selection modal
     document.activeElement.blur();
-    // firstTabStop.focus();
+    firstTabStop.focus(); // !!! not being applied - why?
   } else {
+    // !!! focus trap doesn't work for these buttons - why?
     // mark corresponding modal radio input as checked
     document.getElementById(
       `reward-${triggerbtn.dataset.group}`
     ).checked = true;
     updateCheckedStyles();
-    // document.getElementById(`reward-${triggerbtn.dataset.group}`).focus();
+    document.getElementById(`reward-${triggerbtn.dataset.group}`).focus();
 
     // scroll to selected pledge
     const selected = document.getElementById(
@@ -201,7 +199,9 @@ function closeModal() {
   // close selection modal, remove overlay
   modalSelection.classList.add("hidden");
   modalSelection.classList.remove("fadeIn");
+  modalSelection.classList.add("fadeOut");
   modalSuccess.classList.add("hidden");
+  modalSuccess.classList.add("fadeOutSuccess");
   modalSuccess.classList.remove("fadeInSuccess");
   overlay.classList.add("overlay--hidden");
   overlay.classList.remove("overlay--modal");
@@ -209,11 +209,10 @@ function closeModal() {
   modalContainer.classList.add("hidden");
 
   // apply focus back to where it was before modal was opened
+  document.activeElement.blur();
   focusedElementBeforeModal.focus();
 }
 
-/////////////////////////////////
-// Close Modals: Event Listeners
 // close modals by pressing close buttons
 [btnCloseModal, btnCloseSuccess].forEach((btn) => {
   btn.addEventListener("click", closeModal);
@@ -235,6 +234,30 @@ modalContainer.addEventListener("click", (e) => {
 
 ////////////////////////
 // Submitting a Pledge
+
+pledgeForms.forEach((form) => {
+  form.addEventListener("submit", (e) => {
+    // prevents page refresh, which would reset variables
+    e.preventDefault();
+
+    // decrement remaining selected reward by one (if applicable) and update DOM
+    if (form.dataset.group != "noreward") {
+      updateReward(form);
+    }
+
+    // add one to total number of backers
+    totalBackers++;
+    document.getElementById("num-backers").innerHTML =
+      totalBackers.toLocaleString();
+
+    // add amount pledged to total amount backed & update silder percentage
+    updateTotalBacked(form);
+
+    // close selection modal and open thank you modal
+    successModal();
+  });
+});
+
 function updateReward(form) {
   // get number left of reward selected
   let numRemaining = parseInt(
@@ -280,32 +303,9 @@ function successModal() {
   document.activeElement.blur();
   // hide selection modal and show thank you modal
   modalSelection.classList.add("hidden");
+  modalSelection.classList.add("fadeOut");
   modalSuccess.classList.remove("hidden");
+  modalSuccess.classList.remove("fadeOutSuccess");
   modalSuccess.classList.add("fadeInSuccess");
   // modalSuccess.focus();
 }
-
-//////////////////////////////
-// Pledge Submit Event Listener
-pledgeForms.forEach((form) => {
-  form.addEventListener("submit", (e) => {
-    // prevents page refresh, which would reset variables
-    e.preventDefault();
-
-    // decrement remaining selected reward by one (if applicable) and update DOM
-    if (form.dataset.group != "noreward") {
-      updateReward(form);
-    }
-
-    // add one to total number of backers
-    totalBackers++;
-    document.getElementById("num-backers").innerHTML =
-      totalBackers.toLocaleString();
-
-    // add amount pledged to total amount backed & update silder percentage
-    updateTotalBacked(form);
-
-    // close selection modal and open thank you modal
-    successModal();
-  });
-});

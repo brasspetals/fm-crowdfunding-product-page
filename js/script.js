@@ -73,6 +73,7 @@ let totalBackers = 5007;
 let focusedElementBeforeModal;
 
 // Trigger buttons
+const modalTrigger = document.querySelectorAll(".modal-trigger");
 const btnPrimary = document.querySelector(".btn--primary");
 const btnSelectReward = document.querySelectorAll(".btn--reward");
 
@@ -91,23 +92,25 @@ const btnCloseSuccess = document.querySelector(".btn--success");
 
 ////////////////////////
 // Open Selection Modal
-function openModal() {
-  // save last focused element (the trigger button that was used to open modal)
-  focusedElementBeforeModal = document.activeElement;
+function openModal(triggerbtn) {
+  console.log(triggerbtn);
+  // save last focused element
+  focusedElementBeforeModal = triggerbtn;
 
   // apply overlay
   overlay.classList.remove("overlay--hidden");
   overlay.classList.add("overlay--modal");
 
-  // open modal
+  // reveal modal
   document.body.classList.add("modal-open");
   modalContainer.classList.remove("hidden");
   modalSelection.classList.remove("hidden");
+
   // apply modal "fade in" transition
   modalSelection.classList.add("fadeIn");
-  modalSelection.focus();
 
   //apply focus trap
+  modalSelection.focus();
   modalSelection.addEventListener("keydown", tabTrapKey);
 
   const focusableElementsString =
@@ -121,8 +124,6 @@ function openModal() {
 
   const firstTabStop = focusableElements[0];
   const lastTabStop = focusableElements[focusableElements.length - 1];
-  console.log(firstTabStop, lastTabStop);
-  firstTabStop.focus();
 
   function tabTrapKey(event) {
     console.log(event.key);
@@ -143,37 +144,54 @@ function openModal() {
       }
     }
   }
-}
 
-///////////////////////////////
-// Open Modal: Event Listeners
-btnPrimary.addEventListener("click", (e) => {
-  // Safari fix to manually add focus to button on click - used for "focusedElementBeforeModal" functionality
-  e.target.focus();
-  openModal();
-  document.activeElement.blur();
-});
-
-btnSelectReward.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    // Safari fix to manually add focus to button on click
-    e.target.focus();
-
+  if (triggerbtn === btnPrimary) {
+    // blur focus style on selection modal
+    document.activeElement.blur();
+    // firstTabStop.focus();
+  } else {
     // mark corresponding modal radio input as checked
-    document.getElementById(`reward-${btn.dataset.group}`).checked = true;
-    openModal();
+    document.getElementById(
+      `reward-${triggerbtn.dataset.group}`
+    ).checked = true;
     updateCheckedStyles();
-    document.getElementById(`reward-${btn.dataset.group}`).focus();
+    // document.getElementById(`reward-${triggerbtn.dataset.group}`).focus();
 
     // scroll to selected pledge
     const selected = document.getElementById(
-      `modalPledge--${btn.dataset.group}`
+      `modalPledge--${triggerbtn.dataset.group}`
     );
 
     selected.scrollIntoView({
       behavior: "auto",
       block: "center",
     });
+  }
+
+  // apply "checked" styles to modal pledges
+  function updateCheckedStyles() {
+    // add styles to selected/checked modal pledge, remove styles if not selected/checked
+    radioInputs.forEach((input) => {
+      if (input.checked) {
+        input.closest(".pledge").classList.add("pledge--selected");
+      } else if (!input.checked) {
+        input.closest(".pledge").classList.remove("pledge--selected");
+      }
+    });
+  }
+
+  radioInputs.forEach((input) => {
+    input.addEventListener("change", updateCheckedStyles);
+  });
+}
+
+///////////////////////////////
+// Open Modal: Event Listeners
+modalTrigger.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    // Safari fix to manually add focus to button on click - used for "focusedElementBeforeModal" functionality
+    e.target.focus();
+    openModal(btn);
   });
 });
 
@@ -194,42 +212,25 @@ function closeModal() {
   focusedElementBeforeModal.focus();
 }
 
-////////////////////////////////
-// Close Modal: Event Listeners
-btnCloseModal.addEventListener("click", closeModal);
-btnCloseSuccess.addEventListener("click", closeModal);
-
+/////////////////////////////////
+// Close Modals: Event Listeners
+// close modals by pressing close buttons
+[btnCloseModal, btnCloseSuccess].forEach((btn) => {
+  btn.addEventListener("click", closeModal);
+});
+// close modals by pressing "escape" key
 document.addEventListener("keydown", (event) => {
-  // close modal by pressing "escape" key
   if (event.key == "Escape" && overlay.classList.contains("overlay--modal")) {
     closeModal();
   }
 });
-
+// close modals if clicking outside them
 modalContainer.addEventListener("click", (e) => {
-  // close modal if clicking outside it
   if (e.target !== e.currentTarget) {
     return;
   } else {
     closeModal();
   }
-});
-
-///////////////////////////////////////////
-// Apply "Checked" Styles to Modal Pledges
-function updateCheckedStyles() {
-  // add styles to selected/checked modal pledge, remove styles if not selected/checked
-  radioInputs.forEach((input) => {
-    if (input.checked) {
-      input.closest(".pledge").classList.add("pledge--selected");
-    } else if (!input.checked) {
-      input.closest(".pledge").classList.remove("pledge--selected");
-    }
-  });
-}
-
-radioInputs.forEach((input) => {
-  input.addEventListener("change", updateCheckedStyles);
 });
 
 ////////////////////////

@@ -33,9 +33,9 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  border-radius: 40px;
+  border-radius: 2.5rem;
   transition: all 0.3s;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.03125rem;
 
   &--menu {
     @media only screen and (min-width: 500px) {
@@ -49,25 +49,24 @@
     &:hover,
     &:focus {
       background-color: $color-teal-dark;
-      // outline: none;
     }
   }
 
   &--primary {
-    font-size: 15px;
-    padding: 18px 20px;
-    max-width: 214px;
+    font-size: 0.9375rem;
+    padding: 1.125rem 1.25rem;
+    max-width: 13.375rem;
 
     @media only screen and (min-width: 600px) {
-      padding: 18.5px 20px;
-      max-width: 202px;
+      padding: 1.15625rem 1.25rem;
+      max-width: 12.625rem;
     }
   }
 
   &--reward {
-    font-size: 13px;
-    padding: 16px 0;
-    width: 158px;
+    font-size: 0.8125rem;
+    padding: 1rem 0;
+    width: 9.875rem;
 
     &:disabled {
       background-color: $color-gray;
@@ -77,24 +76,24 @@
 
   &--pledge,
   &--success {
-    font-size: 13px;
-    padding: 16px 33px;
+    font-size: 0.8125rem;
+    padding: 1rem 2.0625rem;
   }
 
   &--success {
-    margin-top: 8px;
+    margin-top: 0.5rem;
   }
 
   &--modal-form {
-    font-size: 13px;
-    padding: 16px 28px;
+    font-size: 0.8125rem;
+    padding: 1rem 1.75rem;
   }
 
   &--close-modal {
     @media only screen and (min-width: 700px) {
       position: absolute;
-      right: 30px;
-      top: 30px;
+      right: 1.875rem;
+      top: 1.875rem;
     }
   }
 }
@@ -103,8 +102,6 @@
 .bookmark {
   &:hover,
   &:focus {
-    // outline: none;
-
     & * circle {
       fill: $color-gray;
     }
@@ -115,15 +112,15 @@
   }
 
   @media only screen and (min-width: 525px) {
-    border-radius: 40px;
+    border-radius: 2.5rem;
     background-color: $color-slider-bg;
     color: $color-gray;
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
-    min-width: 172px;
-    grid-gap: 16px;
-    letter-spacing: 0.5px;
+    min-width: 10.75rem;
+    grid-gap: 1rem;
+    letter-spacing: 0.03125rem;
   }
 
   &__icon {
@@ -142,7 +139,7 @@
 
     @media only screen and (min-width: 525px) {
       display: inline;
-      font-size: 15px;
+      font-size: 0.9375rem;
       transition: all 0.5s ease;
       position: relative;
       z-index: 0;
@@ -151,7 +148,7 @@
         color: $color-teal-dark;
         visibility: hidden;
         opacity: 0;
-        padding-right: 8px;
+        padding-right: 0.5rem;
         transition: all 0.35s ease;
       }
     }
@@ -178,17 +175,17 @@
 
       .bookmark__icon {
         transition: all 0.5s ease;
-        transform: translateX(134px);
+        transform: translateX(8.375rem);
       }
 
       .bookmark__text {
-        transform: translateX(-44px);
+        transform: translateX(-2.75rem);
         color: $color-teal-dark;
       }
 
       // "ed" span
       .bookmark__text--active {
-        padding-right: 26px;
+        padding-right: 1.625rem;
         visibility: visible;
         opacity: 1;
         transition: all 0.5s ease;
@@ -201,15 +198,15 @@
 // Rewards (About Section)
 .reward {
   background-color: $color-white;
-  border-radius: 8px;
-  border: 1px solid $color-pledge-border;
-  padding: 23px 22px;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid $color-pledge-border;
+  padding: 1.4375rem 1.375rem;
   width: 100%;
   display: grid;
-  grid-gap: 23px;
+  grid-gap: 1.4375rem;
 
   @media only screen and (min-width: 700px) {
-    padding: 36px 30px 30px;
+    padding: 2.25rem 1.875rem 1.875rem;
   }
 
   &--unavailable {
@@ -218,7 +215,7 @@
 
   &__header {
     display: grid;
-    grid-gap: 4px;
+    grid-gap: 0.25rem;
 
     @media only screen and (min-width: 525px) {
       grid-auto-flow: column;
@@ -229,7 +226,7 @@
   &__footer {
     display: grid;
     justify-content: start;
-    grid-gap: 24px;
+    grid-gap: 1.5rem;
 
     @media only screen and (min-width: 525px) {
       grid-auto-flow: column;
@@ -241,7 +238,7 @@
       grid-auto-flow: column;
       align-items: center;
       justify-content: start;
-      grid-gap: 9px;
+      grid-gap: 0.5625rem;
     }
   }
 }

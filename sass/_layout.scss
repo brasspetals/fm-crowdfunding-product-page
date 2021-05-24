@@ -299,3 +299,22 @@
     grid-gap: 1.5rem;
   }
 }
+
+// Attribution
+.attribution {
+  width: 100%;
+  text-align: center;
+  padding: 0 1rem 1rem;
+  font-size: 0.875rem;
+  color: $color-gray;
+
+  & a {
+    color: $color-teal;
+    transition: color 0.3s ease;
+    font-weight: 700;
+
+    &:hover {
+      color: $color-teal-dark;
+    }
+  }
+}

@@ -41,7 +41,6 @@ Additions:
 
 Deviations:
 
-- Darkened the hero gradient overlay on desktop to improve navigation visibility.
 - The desktop bookmark button interaction is a bit different than the design - it toggles, with the svg sliding to the opposite side. I wanted to experiment and have a bit of fun. Hopefully, I haven’t created an accessibility nightmare. 🙈
 - The slider may be “fuller” than the design as it’s accurate to the percentage backed.
 
